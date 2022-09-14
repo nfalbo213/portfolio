@@ -1,0 +1,1112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;700&family=Roboto&display=swap');
+
+html {
+    font-size: 125%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Mada', sans-serif;
+}
+a, p, span, input, textarea, button, label {
+    font-family: 'Mada', 'Roboto', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+/* Header section to cover whole page to start out */
+header {
+    
+    display: block;
+
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;*/
+}
+    /* Navbar */
+    .navbar {
+        /* navbar position will be fixed and under canvas - once canvas is scrolled past, navbar should appear  --- accomplish this task using visibility: 'hidden' with javascript*/
+        display: block;
+        position: fixed;
+        /* see http://findmatthew.com/ for possible nav bar work around */
+        /*position: absolute;*/
+        height: 50px;
+        z-index: 2;
+        /*background-color: white;*/
+        background-color: rgb(235, 235, 235);
+        /*background-color: dodgerblue;*/
+        opacity: .9;
+
+        width: 100%;
+        /*padding-top: 1000px;*/
+    }
+        nav li {
+            display: inline-block;
+            margin-left: 1%;
+        }
+        nav a {
+            font-family: 'Roboto', sans-serif;
+            color: dodgerblue;
+            cursor: pointer;
+            transition: .15s;
+            font-weight: bold;
+        }
+        nav a:hover {
+            /*text-decoration: underline;*/
+            color: black;
+            /*background-color: white;*/
+        }
+    /* ^^ End of Navbar section ^^*/
+    .canvas-wrapper {
+        position: relative;
+        margin: 0 auto;
+        /*height: 900px;*/
+        height: 820px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+        canvas {
+            position: absolute;
+            
+            
+            height: 100%;
+            width: 100%;
+            
+            /* *** object-fit: contain is a new addition that may make the difference; see https://stackoverflow.com/questions/34772957/how-to-make-canvas-responsive *** */
+            /*object-fit: contain;*/
+            object-fit: cover;
+            /*
+            width: 1000px;
+            overflow: hidden;
+            */
+            z-index: 3;
+            opacity: 1;
+            /*border: 1px solid black;*/
+
+            /* *** Below is first option from article to create a pixelated look across browsers using an algorithim; there are other options in article as well -> "https://devlog.disco.zone/2016/07/22/canvas-scaling/" *** */
+            /*image-rendering: -moz-crisp-edges; /* Firefox */
+            /*image-rendering: -webkit-crisp-edges; /* Webkit (Safari) */
+            /*image-rendering: pixelated; /* Chrome */
+        }
+        /* Below from https://stackoverflow.com/questions/18922880/html5-canvas-resize-downscale-image-high-quality */
+        /*
+        canvas img {
+            image-rendering: optimizeQuality;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            -ms-interpolation-mode: nearest-neighbor;
+        }
+        */
+        .canvas-cover {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            /*opacity: .7;*/
+            opacity: 1;
+            font-size: 40px;
+            text-align: left;
+        }
+        .canvas-text-wrapper {
+            /*padding: 0 5%;*/
+            /*padding-left: 5%;*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            text-shadow: darkgrey 1px 10px 20px;
+            /*background-color: white;
+            opacity: .9;
+            width: 100%;*/
+            color: black;
+        }
+        .canvas-text-wrapper a {
+            font-family: 'Mada', sans-serif;
+        }
+
+        @media screen and (max-width: 600px) {
+            .canvas-text-wrapper {
+                /*font-size: 25px;*/
+                font-size: 75%;
+                margin-left: 10%;
+            }
+        }
+            .canvas-button {
+                margin: 5%;
+                position: relative;
+                z-index: 5;
+                height: 50px;
+                width: 100px;
+                border-radius: 15px;
+                background-color: transparent;
+                /*border: dodgerblue solid 1px;*/
+                border: black solid 1px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                cursor: pointer;
+                text-decoration: none;
+                font-size: medium;
+                /*color: dodgerblue;*/
+                color: black;
+                opacity: 1;
+            }
+            /* Will use event handlers instead */
+            /*.canvas-button:hover {
+                color: white;
+                background-color: black;
+            }*/
+               /* .canvas-button span {
+                    text-decoration: none;
+                } */
+                .canvas-img-wrapper {
+                    position: absolute;
+                    margin-left: 80%;
+                    z-index: 5;
+                    height: 200px;
+                    width: 125px;
+                    background-image: url("./Resources/images/Snowman.png");
+                    background-size: 60%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    overflow: hidden;
+                }
+                
+                @media screen and (max-width: 500px) {
+                    .canvas-img-wrapper {
+                        margin-left: 70%;
+                        /*height: 150px;
+                        width: 75px;*/
+                        background-position: center;
+                        background-size: 75%;
+                    }
+                    
+                }
+                
+/* ^^ End of Header section ^^ */
+
+/*.separator-div-one {
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+
+    background-color: white;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}*/
+.angle {
+    position: relative;
+  }
+  
+  .angle:after {
+    content: '';
+    position: absolute;
+  }
+  
+
+  
+  
+  .angle0,
+  .angle0:after {
+    height: 80px;
+    width: 100%;
+  }
+  .angle0 {
+    background-color: white;
+    /*background-color: rgb(47, 209, 55);*/
+    /*background-color: rgb(201, 209, 198);*/
+  }
+  .angle0:after {
+    background-color: rgb(235, 235, 235);
+    z-index: 3;
+    /*-webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);*/
+    /* Below fixed missing slit in mobile on chrome */
+    -webkit-clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
+    clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
+    /*-webkit-clip-path: polygon(100% 0, 0% 100%, 0 0);
+    clip-path: polygon(100% 0, 0% 100%, 0 0);*/
+
+    /* https://www.cssportal.com/css-clip-path-generator/ */
+    
+    /*-webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);*/
+
+    /***** POSSIBLE SOLUTION TO GAP PROBLEM ***** 
+    https://stackoverflow.com/questions/54458982/css-clip-path-little-gap-between
+    */
+  }
+
+
+  .angle1,
+  .angle1:after {
+    height: 80px;
+    width: 100%;
+  }
+  
+  /*
+  @media (min-width: 520px) {
+    .angle1,
+    .angle1:after {
+      height: 120px;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .angle1,
+    .angle1:after {
+      height: 160px;
+    }
+  }
+  */
+  
+  .angle1 {
+    /*background-color: rgb(47, 209, 55);*/
+    background-color: rgb(235, 235, 235);
+  }
+  .angle1:after {
+    background-color: white;
+    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .angle2,
+  .angle2:after {
+    height: 80px;
+    width: 100%;
+  }
+  .angle2 {
+    background-color: rgb(235, 235, 235);
+    /*background-color: rgb(47, 209, 55);*/
+    /*background-color: rgb(201, 209, 198);*/
+  }
+  .angle2:after {
+    background-color: white;
+    /*background-color: rgb(201, 209, 198);*/
+    /*background-color: rgb(47, 209, 55);*/
+    /*-webkit-clip-path: polygon(100% 100%, 0 0, 0 100%);
+    clip-path: polygon(100% 100%, 0 0, 0 100%);*/
+
+    -webkit-clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
+    clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
+  }
+
+  .angle2-img {
+    position: absolute;
+    margin-left: 80%;
+    z-index: 1;
+    height: 200px;
+    width: 125px;
+    background-image: url("./Resources/images/Logs.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .angle2-img {
+        margin-left: 70%;
+    }
+}
+
+  .angle3,
+  .angle3:after {
+    height: 80px;
+    width: 100%;
+  }
+  .angle3 {
+    background-color: white;
+    /*background-color: rgb(201, 209, 198);*/
+    /*background-color: rgb(35, 131, 0);*/
+  }
+  
+  .angle3:after {
+    background-color: rgb(235, 235, 235);
+    /*background-color: rgb(35, 131, 0);*/
+    /*background-color: rgb(201, 209, 198);*/
+    -webkit-clip-path: polygon(100% 0, 100% calc(100% + .5px), 0 calc(100% + .5px));
+    clip-path: polygon(100% 0, 100% calc(100% + .5px), 0 calc(100% + .5px));
+  }
+
+  .angle3-img {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 5%;
+    z-index: 1;
+    height: 200px;
+    width: 125px;
+    background-image: url("./Resources/images/PineTree.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: top;
+    overflow: hidden;
+  }
+
+  .angle4,
+  .angle4:after {
+    /*height: 80px;*/
+    height: 140px;
+    width: 100%;
+  }
+  .angle4 {
+    background-color: rgb(235, 235, 235);
+    /*background-color: rgb(129, 163, 117);*/
+  }
+  
+  .angle4:after {
+    background-color: white;
+    /*background-color: rgb(35, 131, 0);*/
+    /*-webkit-clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
+    clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));*/
+   
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+    /*-webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);*/
+
+
+  }
+  .angle4-img {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 3%;
+    z-index: 1;
+    height: 225px;
+    width: 150px;
+    background-image: url("./Resources/images/RiderDown.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+  /*@media screen and (max-width: 600px) {
+    .angle4 {
+        background-color: white;
+      }
+    .angle4:after {
+        background-color: rgb(235, 235, 235);
+        -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+}*/
+
+  /*
+  .angle4-img {
+    position: absolute;
+    margin-right: 80%;
+    margin-top: 237%;
+    z-index: 1;
+    height: 200px;
+    width: 125px;
+    background-image: url("./Resources/images/RiderDown.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    overflow: hidden;
+  }
+  */
+  
+
+/* Main Body Wrapper */
+.main-body-wrapper {
+    margin: 0 auto;
+    /*padding: 2%;*/
+    display: flex;
+    align-items: center;
+    align-content: center;
+    /*justify-content: space-evenly;*/
+    flex-direction: column;
+}
+
+    /* About */
+    .about-wrapper {
+        padding: 4% 0;
+        /*padding: 20px;*/ /* padding-top matches navbar height */
+        width: 100%;
+        /*background-color: rgb(47, 209, 55);*/
+        background-color: rgb(235, 235, 235);
+
+        /*display: flex;
+        align-items: center;
+        align-content: center;*/
+    }
+    .about-wrapper h2, .about-wrapper h3 {
+        margin-left: 10%;
+    }
+    @media screen and (max-width: 600px) {
+        .about-wrapper {
+            padding-top: 8%;
+        }
+        .about-wrapper h3 {
+            margin: 0 10%;
+        }
+    }
+    /*
+    .about-wrapper img {
+        height: 200px;
+        width: 125px;
+        clip-path: circle(30% at 73px 68px);
+    }
+    */
+        .about-container {
+            margin: 3% auto;
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
+        }
+        .about-me-img-wrapper {
+            margin: 0 auto;
+            height: 400px;
+            width: 300px;
+            background-image: url("./Resources/images/ResizedWideProfilePic.jpeg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            clip-path: circle(40% at 158px 190px);
+        }
+        .about-me-text-wrapper {
+            width: 48%;
+        }
+        @media screen and (max-width: 600px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+           /*.about-me-img-wrapper {
+                margin: 0 auto;
+                height: 300px;
+                width: 187px;
+                clip-path: circle(35% at 100px 145px);
+            }*/
+            .about-me-text-wrapper {
+                width: 100%;
+            }
+        }
+        .website-link {
+            color: dodgerblue;
+            transition: .15s;
+        }
+        .website-link:hover {
+            color: black;
+        }
+
+    
+    /* Skills */
+    .skills-wrapper {
+        padding: 4% 0;
+        width: 100%;
+        /*background-color: rgb(201, 209, 198);*/
+        background-color: white;
+    }
+    @media screen and (max-width: 600px) {
+        .skills-wrapper {
+            padding-top: 8%;  
+        }
+    }
+        .skills-container {
+            margin: 3% auto;
+            width: 80%;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+            .skills-row {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: row;
+            }
+                .skill-box {
+                    height: 100px;
+                    width: 100px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    /*align-content: center;*/
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                    font-size: smaller;
+                }
+                    .skill-box span {
+                        width: max-content;
+                    }
+
+        
+        /* Sample Work */
+        .portfolio-wrapper {
+            /*padding: 5% 0;*/
+            padding-top: 5%;
+            padding-bottom: 5%;
+            width: 100%;
+            /*background-color: rgb(35, 131, 0);*/
+            background-color: rgb(235, 235, 235);
+        }
+        @media screen and (max-width: 600px) {
+            .portfolio-wrapper {
+                padding-top: 8%;
+                
+            }
+        }
+            .portfolio-wrapper h2, .portfolio-wrapper h3 {
+                margin-left: 10%;
+            }
+            @media screen and (max-width: 600px) {
+                .portfolio-wrapper h3 {
+                    margin-right: 5%;
+                    
+                }
+            }
+            .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+                margin: 0 auto;
+                width: 80%;
+                height: 33%;
+
+                /*height: 500px;*/
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                /*flex-direction: row;*/
+            }
+            .first-project-wrapper, .third-project-wrapper, .fifth-project-wrapper {
+                flex-direction: row;
+            }
+            .second-project-wrapper, .fourth-project-wrapper {
+                /*flex-direction: row-reverse;*/
+                flex-direction: row-reverse;
+            }
+            @media screen and (max-width: 680px) {
+                .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+                    flex-direction: column-reverse;
+                    align-items: flex-start;
+                }
+            }
+
+                .project-text-wrapper {
+                    width: 50%;
+                }
+                @media screen and (max-width: 680px) {
+                    .project-text-wrapper {
+                        width: 100%;
+                    }
+                }
+                .project-img-wrapper {
+                    /*width: 50%*/
+                    width: 50%;
+                    height: 20em;
+                    display: flex;
+                    justify-content: center;
+                }
+                @media screen and (max-width: 1110px) {
+                    .project-img-wrapper {
+                        width: 50%;
+                        height: 15em;
+                    }
+                }
+                @media screen and (max-width: 680px) {
+                    .project-img-wrapper {
+                        width: 100%;
+                        height: 18.5em;
+                    }
+                }
+                @media screen and (max-width: 600px) {
+                    .project-img-wrapper {
+                        width: 100%;
+                        height: 17em;
+                    }
+                }
+                @media screen and (max-width: 500px) {
+                    .project-img-wrapper {
+                        width: 70%;
+                        height: 10em;
+                    }
+                }
+                @media screen and (max-width: 450px) {
+                    .project-img-wrapper {
+                        width: 100%;
+                        height: 10.5em;
+                    }
+                }
+                @media screen and (max-width: 375px) {
+                    .project-img-wrapper {
+                        width: 100%;
+                        height: 10.5em;
+                    }
+                }
+                .project-img-wrapper1 {
+                    background-image: url("./Resources/images/TankBattleMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper2 {
+                    background-image: url("./Resources/images/STSMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper3 {
+                    background-image: url("./Resources/images/PortfolioMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper4 {
+                    background-image: url("./Resources/images/ComfortShieldMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper5 {
+                    background-image: url("./Resources/images/ModernApothecaMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                    .project-skills-wrapper {
+                        width: 75%;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        align-items: flex-start;
+
+                    }
+                    .project-skills-wrapper2{
+                        width: 30%
+                    }
+                        .project-skill-img {
+                            height: /*3em*/35px;
+                            width: /*3em*/35px;
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                        .project-html5 {
+                            background-image: url("./Resources/images/HTML5.png");
+                        }
+                        .project-css3 {
+                            background-image: url("./Resources/images/CSS3.png");
+                        }
+                        .project-javascript {
+                            background-image: url("./Resources/images/JavaScript.png");
+                        }
+                        .project-vscode {
+                            background-image: url("./Resources/images/vscode.png");
+                        }
+                        .project-github {
+                            background-image: url("./Resources/images/GitHubOfficial.png");
+                        }
+                        .project-wordpress {
+                            background-image: url("./Resources/images/WordPressLogo.png");
+                        }
+                        .project-elementor {
+                            background-image: url("./Resources/images/ElementorPink.png");
+                        }
+                       /* @media screen and (max-width: 600px) {
+                            .project-vscode {
+                                margin-right: 5%;
+                            }
+                            .project-wordpress {
+                                margin-right: 10%;
+                            }
+                        }*/
+                    .project-button, button {
+                        height: 50px;
+                        width: 150px;
+                        margin: 1% 0;
+                        border-radius: 15px;
+                        font-size: inherit;
+                        font-weight: bold;
+                        font-family: 'Roboto', 'Mada', sans-serif;
+                        /* Current background-color just for contrast */
+                        background-color: dodgerblue;
+                        /*background-color: white;*/
+                        /*border: black solid 1px;*/
+                        border: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: white;
+                        -webkit-transition: .15s;
+                        -moz-transition: .15s;
+                        -ms-transition: .15s;
+                        -o-transition: .15s;
+                        transition: .15s;
+                    }
+                    .project-button:hover, button:hover {
+                        /*background-color: rgb(235, 235, 235);*/
+                        /*background-color: rgb(30, 188, 255);*/
+                        background-color: black;
+                        color: white;
+
+                    }
+                    .account-manager-projects {
+                        margin-top: 10%;
+                    }
+
+                    /*
+                    #visit-project-one, #visit-project-three {
+                        margin-top: 1%;
+                    }
+                    #visit-project-two {
+                        margin-top: 1%;
+                    }
+                    #visit-repository-one, #visit-repository-three {
+                        margin-top: 1%;
+                    }
+                    */
+
+                    /* How https://anniebombanie.com/?ltclid=e3c4aacb-6de2-4e82-9f60-37f956b13d38 did image overlay (see cactus)
+                    .skills-wrapper:after {
+                        content: url('/Resources/images/RiderDown.png');
+                        display: block;
+                        position: absolute;
+                        right: -10px;
+                        bottom: -96px;
+                        z-index: 2;
+                        height: auto;
+                        width: 165px;
+                    }
+                    */
+
+        /* Contact Section */
+        .contact-wrapper {
+            padding: 4% 0;
+            width: 100%;
+            /*background-color: rgb(129, 163, 117);*/
+            background-color: white
+        }
+        @media screen and (max-width: 600px) {
+            .contact-wrapper {
+                padding-top: 8%;
+            }
+        }
+            .contact-wrapper h2 {
+                margin-left: 10%;
+            }
+            .contact-container {
+                margin: 3% auto;
+                width: 80%;
+
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-around;
+                flex-direction: column;
+            }
+            form {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-around;
+                flex-direction: column;
+            }
+            input, textarea {
+                width: 50%;
+                font-size: inherit;
+                /*height: 75%;*/
+                -webkit-box-shadow: 1px 1.5px black;
+                -moz-box-shadow: 1px 1.5px black;
+                -ms-box-shadow: 1px 1.5px black;
+                -o-box-shadow: 1px 1.5px black;
+                box-shadow: 1px 1.5px black;
+                background-color: rgb(235, 235, 235);
+                border: none;
+            }
+            input {
+                height: 35px;
+            }
+           textarea {
+                height: 150px;
+            }
+
+            @media screen and (max-width: 600px) {
+                input, textarea {
+                    width: 100%;
+                }
+            }
+            label {
+                opacity: 0;
+                color: white;
+                font-size: xx-small;
+            }
+            .github-link {
+                    height: 50px;
+                    width: 50px;
+                    background-image: url("./Resources/images/GitHubOfficial.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    cursor: pointer;
+                }
+            
+
+
+
+
+
+
+/* ^^ End of Main Body Wrapper ^^ */
+
+/* Footer */
+footer {
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+    text-align: center;
+    font-family: 'Mada', sans-serif;
+    font-size: initial;
+}
+
+
+/* Origonal Edits before Saturday */
+
+/*
+/* Main Body Wrapper *
+.main-body-wrapper {
+    margin: 0 auto;
+    /*padding: 2%;*
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+    /* About *
+    .about-wrapper {
+        padding: 4% 0;
+        /*padding: 20px;* /* padding-top matches navbar height *
+        width: 100%;
+        /*background-color: rgb(47, 209, 55);*
+        background-color: rgb(235, 235, 235);
+
+        /*display: flex;
+        align-items: center;
+        align-content: center;*
+    }
+    @media screen and (max-width: 600px) {
+        .about-wrapper {
+            padding: 20% 0;
+            
+        }
+    }
+    .about-wrapper img {
+        height: 200px;
+        width: 125px;
+        clip-path: circle(30% at 73px 68px);
+    }
+        .about-container {
+            margin: 3% auto;
+            width: 80%;
+        }
+        .about-me-img-wrapper {
+            height: 200px;
+            width: 125px;
+            background-image: url("./Resources/images/RiderDown.png");
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    
+    /* Skills *
+    .skills-wrapper {
+        padding: 4% 0;
+        width: 100%;
+        /*background-color: rgb(201, 209, 198);*
+        background-color: white;
+    }
+    @media screen and (max-width: 600px) {
+        .skills-wrapper {
+            padding: 20% 0;
+            
+        }
+    }
+        .skills-container {
+            margin: 3% auto;
+            width: 80%;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+            .skills-row {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: row;
+            }
+                .skill-box {
+                    height: 100px;
+                    width: 100px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    /*align-content: center;*
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                    font-size: smaller;
+                }
+                    .skill-box span {
+                        width: max-content;
+                    }
+
+        
+        /* Sample Work *
+        .portfolio-wrapper {
+            padding: 5% 0;
+            width: 100%;
+            /*background-color: rgb(35, 131, 0);*
+            background-color: rgb(235, 235, 235);
+        }
+        @media screen and (max-width: 600px) {
+            .portfolio-wrapper {
+                padding: 20% 0;
+                
+            }
+        }
+            .portfolio-wrapper h2 {
+                margin-left: 10%;
+            }
+            .first-project-wrapper, .second-project-wrapper, .third-project-wrapper {
+                margin: 3% auto;
+                width: 80%;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                /*flex-direction: row;*
+            }
+            .first-project-wrapper, .third-project-wrapper {
+                flex-direction: row;
+            }
+            .second-project-wrapper {
+                flex-direction: row-reverse;
+            }
+            @media screen and (max-width: 680px) {
+                .first-project-wrapper, .second-project-wrapper, .third-project-wrapper {
+                    flex-direction: column-reverse;
+                }
+                .project-img-wrapper {
+                    width: 100%;
+                    height: 10em;
+                }
+            }
+
+                .project-description-container {
+                    width: 50%;
+
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                }
+                .project-img-wrapper {
+                    width: 50%;
+                    height: 20em;
+                    display: flex;
+                    justify-content: center;
+                }
+                @media screen and (max-width: 600px) {
+                    .project-img-wrapper {
+                        width: 80%;
+                        height: 15em;
+                    }
+                }
+                @media screen and (max-width: 500px) {
+                    .project-img-wrapper {
+                        width: 70%;
+                        height: 10em;
+                    }
+                }
+                @media screen and (max-width: 450px) {
+                    .project-img-wrapper {
+                        width: 90%;
+                        height: 10.5em;
+                    }
+                }
+                @media screen and (max-width: 375px) {
+                    .project-img-wrapper {
+                        width: 100%;
+                        height: 10.5em;
+                    }
+                }
+                .project-img-wrapper1 {
+                    background-image: url("./Resources/images/TankBattleMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper2 {
+                    background-image: url("./Resources/images/STSMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                .project-img-wrapper3 {
+                    background-image: url("./Resources/images/ModernApothecaMockUp.png");
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                }
+                    .project-skills-wrapper {
+                        width: 25%;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        align-items: flex-start;
+
+                    }
+                    .project-button {
+                        height: 50px;
+                        width: 150px;
+                        border-radius: 15px;
+                        /* Current background-color just for contrast *
+                        background-color: dodgerblue;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                    #visit-project-one, #visit-project-three {
+                        margin-top: 1%;
+                    }
+                    #visit-project-two {
+                        margin-top: 1%;
+                    }
+                    #visit-repository-one, #visit-repository-three {
+                        margin-top: 1%;
+                    }
+
+*/
