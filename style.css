@@ -700,6 +700,10 @@ header {
                         cursor: pointer;
                         text-decoration: none;
                         color: white;
+                        -webkit-transition: .15s;
+                        -moz-transition: .15s;
+                        -ms-transition: .15s;
+                        -o-transition: .15s;
                         transition: .15s;
                     }
                     .project-button:hover, button:hover {
