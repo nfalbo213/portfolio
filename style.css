@@ -5,10 +5,12 @@ html {
     font-size: 125%;
     scroll-behavior: smooth;
     /*overflow: hidden;*/
+    overflow-x: hidden;
 }
 
 body {
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -322,7 +324,7 @@ header {
 
 @media screen and (max-width: 600px) {
     .angle2-img {
-        margin-left: 70%;
+        margin-left: 65%;
     }
 }
 
