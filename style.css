@@ -150,7 +150,7 @@ header {
             }
         }
             .canvas-button {
-                margin-bottom: 20%;
+                margin-bottom: 5%;
                 position: relative;
                 z-index: 5;
                 height: 50px;
@@ -170,6 +170,13 @@ header {
                 color: black;
                 opacity: 1;
             }
+
+            @media screen and (max-width: 600px) {
+                .canvas-button {
+                    margin-bottom: 20%;
+                }
+            }
+
             /* Will use event handlers instead */
             /*.canvas-button:hover {
                 color: white;
