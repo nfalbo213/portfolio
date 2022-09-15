@@ -144,11 +144,11 @@ header {
             .canvas-text-wrapper {
                 /*font-size: 25px;*/
                 font-size: 75%;
-                margin-left: 10%;
+                padding-left: 10%;
             }
         }
             .canvas-button {
-                margin: 5%;
+                margin-bottom: 10%;
                 position: relative;
                 z-index: 5;
                 height: 50px;
@@ -450,14 +450,14 @@ header {
         align-content: center;*/
     }
     .about-wrapper h2, .about-wrapper h3 {
-        margin-left: 10%;
+        padding-left: 10%;
     }
     @media screen and (max-width: 600px) {
         .about-wrapper {
             padding-top: 8%;
         }
         .about-wrapper h3 {
-            margin: 0 10%;
+            padding: 0 10%;
         }
     }
     /*
@@ -570,11 +570,11 @@ header {
             }
         }
             .portfolio-wrapper h2, .portfolio-wrapper h3 {
-                margin-left: 10%;
+                padding-left: 10%;
             }
             @media screen and (max-width: 600px) {
                 .portfolio-wrapper h3 {
-                    margin-right: 5%;
+                    padding-right: 5%;
                     
                 }
             }
@@ -815,7 +815,7 @@ header {
                 margin-left: 10%;
             }
             .contact-container {
-                margin: 3% auto;
+                padding: 3% auto;
                 width: 80%;
 
                 display: flex;
