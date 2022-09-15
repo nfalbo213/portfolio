@@ -52,7 +52,10 @@ header {
     }
         nav li {
             display: inline-block;
-            /*margin-left: 1%;*/
+        }
+        .navlist {
+            border-right: 1px solid black;
+            padding-right: 3px;
         }
         nav a {
             font-family: 'Roboto', sans-serif;
