@@ -945,7 +945,7 @@ navThree.onpointerup = (event) => {
 
     hamburgerClicked = false;
 
-    event.preventDefault();
+    //event.preventDefault();
 
 }
 
@@ -964,7 +964,7 @@ navFour.onpointerup = (event) => {
 
     hamburgerClicked = false;
 
-    event.preventDefault();
+    //event.preventDefault();
 
 }
 
