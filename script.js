@@ -816,6 +816,7 @@ const topSpan = document.getElementById('top-span');
 const middleSpan = document.getElementById('middle-span');
 const bottomSpan = document.getElementById('bottom-span');
 const navList = document.getElementById('nav-list');
+const navZero = document.getElementById('nav0');
 const navOne = document.getElementById('nav1');
 const navTwo = document.getElementById('nav2');
 const navThree = document.getElementById('nav3');
@@ -877,6 +878,27 @@ hamburger.onpointerup = (event) => {
     }
     
     event.preventDefault();
+
+}
+
+navZero.onpointerup = (event) => {
+
+    topSpan.style.transform = 'rotate(-360deg)';
+    topSpan.style.position = '';
+    middleSpan.style.position = '';
+    middleSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.position = '';
+    hamburger.style.justifyContent = '';
+    navBar.style.opacity = '';
+    navBar.style.height = '';
+    navList.style.display = '';
+
+    hamburgerClicked = false;
+
+    event.preventDefault();
+
+    window.location.replace("#home");
 
 }
 
