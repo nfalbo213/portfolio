@@ -120,7 +120,7 @@ header {
                 font-weight: bolder;
             }
             nav a:hover {
-                color: white;
+                color: black;
             }
         }
     /* ^^ End of Navbar section ^^*/
