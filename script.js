@@ -925,10 +925,10 @@ navTwo.onpointerup = (event) => {
     navList.style.display = '';
 
     hamburgerClicked = false;
-
-    window.location.replace("http://www.falbo.dev/#skills");
    
     event.preventDefault();
+   
+    window.location.replace("http://www.falbo.dev/#skills");
 
 }
 
