@@ -115,11 +115,11 @@ header {
                 margin-right: 5%;
             }
             nav a {
-                color: white;
+                color: dodgerblue;
                 font-weight: bolder;
             }
             nav a:hover {
-                color: dodgerblue;
+                color: white;
             }
         }
     /* ^^ End of Navbar section ^^*/
