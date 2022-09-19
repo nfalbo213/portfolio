@@ -529,7 +529,7 @@ header {
     }
     @media screen and (max-width: 600px) {
         .about-wrapper {
-            padding-top: 8%;
+            padding-top: 10%;
         }
         .about-wrapper h3 {
             padding: 0 10%;
@@ -597,7 +597,7 @@ header {
     }
     @media screen and (max-width: 600px) {
         .skills-wrapper {
-            padding-top: 8%;  
+            padding-top: 10%; 
         }
     }
         .skills-container {
@@ -640,7 +640,7 @@ header {
         }
         @media screen and (max-width: 600px) {
             .portfolio-wrapper {
-                padding-top: 8%;
+                padding-top: 10%;
                 
             }
         }
@@ -883,7 +883,7 @@ header {
         }
         @media screen and (max-width: 600px) {
             .contact-wrapper {
-                padding-top: 8%;
+                padding-top: 10%;
             }
         }
             .contact-wrapper h2 {
