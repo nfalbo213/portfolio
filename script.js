@@ -930,7 +930,7 @@ navTwo.onpointerup = (event) => {
 
 }
 
-navThree.ontouchup = (event) => {
+navThree.addEventListener('touchend', (event) => {
 
     topSpan.style.transform = 'rotate(-360deg)';
     topSpan.style.position = '';
