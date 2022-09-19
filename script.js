@@ -926,6 +926,8 @@ navTwo.onpointerup = (event) => {
 
     hamburgerClicked = false;
 
+    window.location.replace("http://www.falbo.dev/#skills");
+   
     event.preventDefault();
 
 }
