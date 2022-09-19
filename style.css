@@ -64,7 +64,8 @@ header {
             height: 5px;
             border-radius: 4px;
             display: block;
-            background-color: #fff;
+            /*background-color: #fff;*/
+            background-color: dodgerblue;
             -webkit-transition: 0.5s;
             transition: 0.5s;
             transition-property: all;
