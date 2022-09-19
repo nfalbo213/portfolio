@@ -826,17 +826,149 @@ window.onresize = function() {
 ////////////////////
 // Global Variables
 
+const navBar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const topSpan = document.getElementById('top-span');
+const middleSpan = document.getElementById('middle-span');
+const bottomSpan = document.getElementById('bottom-span');
+const navList = document.getElementById('nav-list');
+const navOne = document.getElementById('nav1');
+const navTwo = document.getElementById('nav2');
+const navThree = document.getElementById('nav3');
+const navFour = document.getElementById('nav4');
+let hamburgerClicked = false;
+
 const canvasButton = document.getElementById('canvas-welcome-button');
+
+//NOT BEING USED YET: 
+/*
+const contactForm = document.getElementById('contact-form');
+const sendButton = document.getElementById('send-button');
+const submittedButton = document.getElementById('submitted-button');
+*/
+////
 
 
 /////////////
 // Functions
 
-/*
-document.addEventListener('pointerover', (event) => {
 
-})
-*/
+// NAVBAR FUNCTIONS ///////////////////////////////////////////
+
+hamburger.onpointerup = (event) => {
+
+    if (!hamburgerClicked) {
+        topSpan.style.transform = 'rotate(405deg)';
+        topSpan.style.position = 'absolute';
+        middleSpan.style.transform = 'rotate(405deg)';
+        middleSpan.style.position = 'absolute';
+        bottomSpan.style.transform = 'rotate(315deg)';
+        bottomSpan.style.position = 'absolute';
+        hamburger.style.justifyContent = 'center';
+        
+        navBar.style.opacity = '.98';
+
+        navBar.style.height = '50%';
+        navList.style.display = 'flex';
+        
+
+        hamburgerClicked = true;
+    } else {
+        topSpan.style.transform = 'rotate(-360deg)';
+        topSpan.style.position = '';
+        middleSpan.style.position = '';
+        middleSpan.style.transform = 'rotate(-360deg)';
+        bottomSpan.style.transform = 'rotate(-360deg)';
+        bottomSpan.style.position = '';
+        hamburger.style.justifyContent = '';
+        navBar.style.opacity = '';
+        navBar.style.height = '';
+        navList.style.display = '';
+
+        hamburgerClicked = false;
+    }
+    
+    event.preventDefault();
+
+}
+
+navOne.onpointerup = (event) => {
+
+    topSpan.style.transform = 'rotate(-360deg)';
+    topSpan.style.position = '';
+    middleSpan.style.position = '';
+    middleSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.position = '';
+    hamburger.style.justifyContent = '';
+    navBar.style.opacity = '';
+    navBar.style.height = '';
+    navList.style.display = '';
+
+    hamburgerClicked = false;
+
+    event.preventDefault();
+
+}
+
+navTwo.onpointerup = (event) => {
+
+    topSpan.style.transform = 'rotate(-360deg)';
+    topSpan.style.position = '';
+    middleSpan.style.position = '';
+    middleSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.position = '';
+    hamburger.style.justifyContent = '';
+    navBar.style.opacity = '';
+    navBar.style.height = '';
+    navList.style.display = '';
+
+    hamburgerClicked = false;
+
+    event.preventDefault();
+
+}
+
+navThree.onpointerup = (event) => {
+
+    topSpan.style.transform = 'rotate(-360deg)';
+    topSpan.style.position = '';
+    middleSpan.style.position = '';
+    middleSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.position = '';
+    hamburger.style.justifyContent = '';
+    navBar.style.opacity = '';
+    navBar.style.height = '';
+    navList.style.display = '';
+
+    hamburgerClicked = false;
+
+    event.preventDefault();
+
+}
+
+navFour.onpointerup = (event) => {
+
+    topSpan.style.transform = 'rotate(-360deg)';
+    topSpan.style.position = '';
+    middleSpan.style.position = '';
+    middleSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.transform = 'rotate(-360deg)';
+    bottomSpan.style.position = '';
+    hamburger.style.justifyContent = '';
+    navBar.style.opacity = '';
+    navBar.style.height = '';
+    navList.style.display = '';
+
+    hamburgerClicked = false;
+
+    event.preventDefault();
+
+}
+
+// CANVAS BUTTON FUNCTIONS ///////////////////////////
 
 canvasButton.onpointerover = (event) => {
 
