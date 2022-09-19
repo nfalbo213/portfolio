@@ -896,6 +896,8 @@ navOne.onpointerup = (event) => {
     hamburgerClicked = false;
 
     event.preventDefault();
+    
+    window.location.replace("#about");
 
 }
 
@@ -936,6 +938,8 @@ navThree.onpointerup = (event) => {
     hamburgerClicked = false;
 
     event.preventDefault();
+    
+    window.location.replace("#sample-work");
 
 }
 
@@ -955,6 +959,8 @@ navFour.onpointerup = (event) => {
     hamburgerClicked = false;
 
     event.preventDefault();
+    
+    window.location.replace("#contact");
 
 }
 
