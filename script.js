@@ -930,7 +930,7 @@ navTwo.onpointerup = (event) => {
 
 }
 
-navThree.onpointerup = (event) => {
+navThree.ontouchup = (event) => {
 
     topSpan.style.transform = 'rotate(-360deg)';
     topSpan.style.position = '';
@@ -945,11 +945,11 @@ navThree.onpointerup = (event) => {
 
     hamburgerClicked = false;
 
-    //event.preventDefault();
+    event.preventDefault();
 
 }
 
-navFour.onpointerup = (event) => {
+navFour.ontouchup = (event) => {
 
     topSpan.style.transform = 'rotate(-360deg)';
     topSpan.style.position = '';
@@ -964,7 +964,7 @@ navFour.onpointerup = (event) => {
 
     hamburgerClicked = false;
 
-    //event.preventDefault();
+    event.preventDefault();
 
 }
 
