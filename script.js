@@ -928,7 +928,7 @@ navTwo.onpointerup = (event) => {
    
     event.preventDefault();
    
-    //window.location.replace("http://www.falbo.dev/#skills");
+    window.location.replace("#skills");
 
 }
 
