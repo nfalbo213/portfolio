@@ -35,25 +35,47 @@ header {
 }
     /* Navbar */
     .navbar {
-        /* navbar position will be fixed and under canvas - once canvas is scrolled past, navbar should appear  --- accomplish this task using visibility: 'hidden' with javascript*/
         display: block;
         position: fixed;
-        /* see http://findmatthew.com/ for possible nav bar work around */
-        /*position: absolute;*/
         height: 50px;
         z-index: 2;
         /*background-color: white;*/
         background-color: rgb(235, 235, 235);
         /*background-color: dodgerblue;*/
-        opacity: .9;
+        opacity: .95;
 
         width: 100%;
         /*padding-top: 1000px;*/
     }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: center;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            /* position will help keep hamburger in place when navlist drops down*/
+            position: fixed;
+        }
+        .x-span, .middle-span {
+            right: 4px;
+            width: 40px;
+            height: 5px;
+            border-radius: 4px;
+            display: block;
+            background-color: #fff;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+            transition-delay: 0s;
+        }
         nav li {
             display: inline-block;
         }
-        .navlist {
+        .border-li {
             border-right: 1px solid black;
             padding-right: 3px;
         }
@@ -68,6 +90,37 @@ header {
             /*text-decoration: underline;*/
             color: black;
             /*background-color: white;*/
+        }
+        /* Make hamburger visible in mobile */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                display: flex;
+                justify-content: flex-end;
+                height: 55px;
+                z-index: 99;
+            }
+            .nav-list{
+                display: none;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100%;
+            }
+            .border-li {
+                border-right: none;
+                padding-right: none;
+            }
+            .hamburger {
+                display: flex;
+                margin-right: 5%;
+            }
+            nav a {
+                color: white;
+                font-weight: bolder;
+            }
+            nav a:hover {
+                color: dodgerblue;
+            }
         }
     /* ^^ End of Navbar section ^^*/
     .canvas-wrapper {
