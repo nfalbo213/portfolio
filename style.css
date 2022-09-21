@@ -113,7 +113,7 @@ header {
             }
             .border-li {
                 border-right: none;
-                padding-right: none;
+                padding-right: 0;
             }
             .hamburger {
                 display: flex;
