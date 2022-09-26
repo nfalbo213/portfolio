@@ -823,6 +823,7 @@ const navTwo = document.getElementById('nav2');
 const navThree = document.getElementById('nav3');
 const navFour = document.getElementById('nav4');
 let hamburgerClicked = false;
+let navButtonClicked = false;
 
 // Canvas Button Variables
 const canvasButton = document.getElementById('canvas-welcome-button');
@@ -842,188 +843,120 @@ const submittedButton = document.getElementById('submitted-button');
 
 // NAVBAR FUNCTIONS ///////////////////////////////////////////
 
-hamburger.onpointerup = (event) => {
+const burgerSpin = () => {
 
     if (!hamburgerClicked) {
+
+        // Animate top of burger
         topSpan.style.transform = 'rotate(405deg)';
         topSpan.style.position = 'absolute';
+        // Animate middle of burger
         middleSpan.style.transform = 'rotate(405deg)';
         middleSpan.style.position = 'absolute';
+        // Animate bottom of burger
         bottomSpan.style.transform = 'rotate(315deg)';
         bottomSpan.style.position = 'absolute';
+        // Drop down navbar extension
         mobileNavList.style.display = 'flex';
-
-    // CHANGE BACK BELOW CODE IF REMOVE JQUERY
-        //navBar.style.height = '50%';
-        //navBar.style.opacity = '.98';
-
         $( "#navbar" ).animate({
             height: "50%",
             opacity: ".98"
-          }, 250 );
-
+          }, 200 );
+        // Set burger as clicked
         hamburgerClicked = true;
 
+        // CHANGE BACK BELOW CODE IF REMOVE JQUERY
+        //navBar.style.height = '50%';
+        //navBar.style.opacity = '.98';
+        
     } else {
+
+        // Animate top of burger
         topSpan.style.transform = 'rotate(-360deg)';
         topSpan.style.position = '';
-        middleSpan.style.position = '';
+        // Animate middle of burger
         middleSpan.style.transform = 'rotate(-360deg)';
+        middleSpan.style.position = '';
+        // Animate bottom of burger
         bottomSpan.style.transform = 'rotate(-360deg)';
         bottomSpan.style.position = '';
+        // Close navbar extension
         mobileNavList.style.display = '';
-        
+        // Check to see if navbutton clicked
+        if (!navButtonClicked) {
+            $( "#navbar" ).animate({
+                height: "70px",
+                opacity: ".95"
+              }, 200 );
+        } else {
+            $( "#navbar" ).animate({
+                height: "70px",
+                opacity: ".95"
+              }, 100 );
+              navButtonClicked = false;
+        }
+        // Set burger as 'not-clicked'
+        hamburgerClicked = false;
+
         // CHANGE BACK BELOW CODE IF REMOVE JQUERY
         //navBar.style.opacity = '';
         //navBar.style.height = '';
 
-
-        $( "#navbar" ).animate({
-            height: "10%",
-            opacity: ".95"
-          }, 200 );
-
-
-        hamburgerClicked = false;
-
-          
     }
     
+}
+
+hamburger.onpointerup = (event) => {
+    
     event.preventDefault();
+    burgerSpin();
 
 }
 
 navZero.onpointerup = (event) => {
 
-    topSpan.style.transform = 'rotate(-360deg)';
-    topSpan.style.position = '';
-    middleSpan.style.position = '';
-    middleSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.position = '';
-    mobileNavList.style.display = '';
-
-    // CHANGE BACK BELOW CODE IF REMOVE JQUERY
-    //navBar.style.opacity = '';
-    //navBar.style.height = '';
     
-    $( "#navbar" ).animate({
-        height: "10%",
-        opacity: ".95"
-      }, 100 );
-
-    hamburgerClicked = false;
 
     event.preventDefault();
-
+    navButtonClicked = true;
+    burgerSpin();
     window.location.replace("#home");
 
 }
 
 navOne.onpointerup = (event) => {
 
-    topSpan.style.transform = 'rotate(-360deg)';
-    topSpan.style.position = '';
-    middleSpan.style.position = '';
-    middleSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.position = '';
-    mobileNavList.style.display = '';
-
-// CHANGE BACK BELOW CODE IF REMOVE JQUERY
-    //navBar.style.opacity = '';
-    //navBar.style.height = '';
-    
-    $( "#navbar" ).animate({
-        height: "10%",
-        opacity: ".95"
-      }, 100 );
-
-    hamburgerClicked = false;
 
     event.preventDefault();
-
+    navButtonClicked = true;
+    burgerSpin();
     window.location.replace("#about");
 
 }
 
 navTwo.onpointerup = (event) => {
 
-    topSpan.style.transform = 'rotate(-360deg)';
-    topSpan.style.position = '';
-    middleSpan.style.position = '';
-    middleSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.position = '';
-    mobileNavList.style.display = '';
-
-    // CHANGE BACK BELOW CODE IF REMOVE JQUERY
-    //navBar.style.opacity = '';
-    //navBar.style.height = '';
-        
-    $( "#navbar" ).animate({
-        height: "10%",
-        opacity: ".95"
-      }, 100 );
-
-    hamburgerClicked = false;
-
     event.preventDefault();
-
+    navButtonClicked = true;
+    burgerSpin();
     window.location.replace("#skills");
 
 }
 
 navThree.onpointerup = (event) => {
 
-    topSpan.style.transform = 'rotate(-360deg)';
-    topSpan.style.position = '';
-    middleSpan.style.position = '';
-    middleSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.position = '';
-    mobileNavList.style.display = '';
-
-// CHANGE BACK BELOW CODE IF REMOVE JQUERY
-    //navBar.style.opacity = '';
-    //navBar.style.height = '';
-    
-    $( "#navbar" ).animate({
-        height: "10%",
-        opacity: ".95"
-      }, 100 );
-
-    hamburgerClicked = false;
-
     event.preventDefault();
-
+    navButtonClicked = true;
+    burgerSpin();
     window.location.replace("#sample-work");
 
 }
 
 navFour.onpointerup = (event) => {
 
-    topSpan.style.transform = 'rotate(-360deg)';
-    topSpan.style.position = '';
-    middleSpan.style.position = '';
-    middleSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.transform = 'rotate(-360deg)';
-    bottomSpan.style.position = '';
-    mobileNavList.style.display = '';
-
-// CHANGE BACK BELOW CODE IF REMOVE JQUERY
-    //navBar.style.opacity = '';
-    //navBar.style.height = '';
-    
-    $( "#navbar" ).animate({
-        height: "10%",
-        opacity: ".95"
-      }, 100 );
-
-    hamburgerClicked = false;
-
     event.preventDefault();
-
+    navButtonClicked = true;
+    burgerSpin();
     window.location.replace("#contact");
 
 }
