@@ -291,7 +291,7 @@ header {
 
   .angle00,
   .angle00:after {
-    height: 80px;
+    height: 75px;
     width: 100%;
   }
   .angle00 {
@@ -446,7 +446,6 @@ header {
 
     /* About */
     .about-wrapper {
-        padding-top: 75px;
         /* ***READ*** No padding-bottom done in .about-wrapper becasue margin-block-end is configured in heightSet() function in JS */
         width: 100%;
         /*background-color: rgb(47, 209, 55);*/
