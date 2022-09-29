@@ -4,14 +4,10 @@
 html {
     font-size: 125%;
     scroll-behavior: smooth;
-    
-    /*overflow-x: hidden;*/
-    /*overflow: hidden;*/
 }
 
 body {
     margin: 0 auto;
-    /*overflow-x: hidden;*/
 }
 
 h1, h2, h3, h4 {
@@ -42,32 +38,16 @@ h2 {
 header {
     
     display: block;
-
-    /*display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;*/
 }
     /* Navbar */
     .navbar {
-        /* navbar position will be fixed and under canvas - once canvas is scrolled past, navbar should appear  --- accomplish this task using visibility: 'hidden' with javascript*/
         display: block;
         position: fixed;
-        /* see http://findmatthew.com/ for possible nav bar work around */
-        /*position: absolute;*/
-        /*height: 10%;*/
         height: 70px;
         z-index: 2;
-        /*background-color: white;*/
-        /*background-color: rgb(235, 235, 235);*/
         background-color: rgb(130, 130, 130);
-        /*background-color: rgb(68, 172, 101);*/
-        /*background-color: dodgerblue;*/
         opacity: .95;
-
         width: 100%;
-        /*padding-top: 1000px;*/
     }
         .hamburger {
             display: none;
@@ -81,7 +61,6 @@ header {
             position: fixed;
             margin-left: 90%;
             margin-top: 10px;
-
         }
         .x-span, .middle-span {
             right: 4px;
@@ -89,8 +68,6 @@ header {
             height: 5px;
             border-radius: 4px;
             display: block;
-            /*background-color: #fff;*/
-            /*background-color: dodgerblue;*/
             background-color: white;
             -webkit-transition: 0.5s;
             transition: 0.5s;
@@ -114,7 +91,6 @@ header {
         }
         nav a {
             font-family: 'Roboto', sans-serif;
-            /*color: dodgerblue;*/
             color: white;
             cursor: pointer;
             transition: .15s;
@@ -137,9 +113,6 @@ header {
                 align-items: center;
                 */
                 z-index: 99;
-                /*background-color: dodgerblue;*/
-                /*height: 55px;*/
-                /*background-color: rgb(130, 130, 130);*/
             }
             .nav-list {
                 display: none;
@@ -163,8 +136,6 @@ header {
             }
             .hamburger {
                 display: flex;
-                /*align-self: center;*/
-                /*margin-right: 5%;*/
             }
             nav a {
                 /*color: dodgerblue;*/
@@ -186,9 +157,6 @@ header {
     /* ^^ End of Navbar section ^^*/
     .canvas-wrapper {
         position: relative;
-        /*margin: 0 auto;*/
-        /*height: 900px;*/
-        /*height: 820px;*/
         height: 700px;
         width: 100%;
         display: flex;
@@ -200,33 +168,11 @@ header {
             
             height: 100%;
             width: 100%;
-            
-            /* *** object-fit: contain is a new addition that may make the difference; see https://stackoverflow.com/questions/34772957/how-to-make-canvas-responsive *** */
-            /*object-fit: contain;*/
             object-fit: cover;
-            /*
-            width: 1000px;
-            overflow: hidden;
-            */
             z-index: 3;
             opacity: 1;
-            /*border: 1px solid black;*/
+        }
 
-            /* *** Below is first option from article to create a pixelated look across browsers using an algorithim; there are other options in article as well -> "https://devlog.disco.zone/2016/07/22/canvas-scaling/" *** */
-            /*image-rendering: -moz-crisp-edges; /* Firefox */
-            /*image-rendering: -webkit-crisp-edges; /* Webkit (Safari) */
-            /*image-rendering: pixelated; /* Chrome */
-        }
-        /* Below from https://stackoverflow.com/questions/18922880/html5-canvas-resize-downscale-image-high-quality */
-        /*
-        canvas img {
-            image-rendering: optimizeQuality;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: optimize-contrast;
-            -ms-interpolation-mode: nearest-neighbor;
-        }
-        */
         .canvas-cover {
             position: absolute;
             height: 100%;
@@ -245,16 +191,7 @@ header {
         }
         /* check with h1 rules when making changes */
         .canvas-text-wrapper {
-            /*padding: 0 5%;*/
-            /*padding-left: 5%;*/
-            /*display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;*/
             text-shadow: darkgrey 1px 10px 20px;
-            /*background-color: white;
-            opacity: .9;
-            width: 100%;*/
             color: black;
         }
         .canvas-text-wrapper a {
@@ -276,10 +213,7 @@ header {
                 height: 50px;
                 width: 100px;
                 border-radius: 15px;
-                /*background-color: transparent;*/
                 background-color: rgb(130, 130, 130);
-                /*border: dodgerblue solid 1px;*/
-                /*border: black solid 1px;*/
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -287,33 +221,19 @@ header {
                 cursor: pointer;
                 text-decoration: none;
                 font-size: medium;
-                /*color: dodgerblue;*/
-                /*color: black;*/
                 color: white;
-                /*opacity: 1;*/
                 opacity: .9;
             }
 
             @media screen and (max-width: 600px) {
                 .canvas-button {
-                    /*font-size: 25px;*/
-                    /*margin-bottom: 20%;*/
                     border: none;
-                    /*background-color: dodgerblue;*/
                     background-color: rgb(130, 130, 130);
-                    /*background-color: rgb(68, 172, 101);*/
                     color: white;
                     opacity: .80;
                 }
             }
-            /* Will use event handlers instead */
-            /*.canvas-button:hover {
-                color: white;
-                background-color: black;
-            }*/
-               /* .canvas-button span {
-                    text-decoration: none;
-                } */
+
                 .canvas-img-wrapper {
                     position: absolute;
                     margin-left: 80%;
@@ -340,14 +260,7 @@ header {
                 
 /* ^^ End of Header section ^^ */
 
-/*.separator-div-one {
-    margin: 0 auto;
-    width: 100%;
-    height: 40px;
 
-    background-color: white;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-}*/
 .angle {
     position: relative;
   }
@@ -356,9 +269,6 @@ header {
     content: '';
     position: absolute;
   }
-  
-
-  
   
   .angle0,
   .angle0:after {
@@ -375,22 +285,8 @@ header {
     /*background-color: #cef0f8;*/
     background-color: rgb(130, 130, 130);
     z-index: 3;
-    /*-webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0);
-    clip-path: polygon(0 100%, 100% 100%, 100% 0);*/
-    /* Below fixed missing slit in mobile on chrome */
     -webkit-clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
     clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
-    /*-webkit-clip-path: polygon(100% 0, 0% 100%, 0 0);
-    clip-path: polygon(100% 0, 0% 100%, 0 0);*/
-
-    /* https://www.cssportal.com/css-clip-path-generator/ */
-    
-    /*-webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);*/
-
-    /***** POSSIBLE SOLUTION TO GAP PROBLEM ***** 
-    https://stackoverflow.com/questions/54458982/css-clip-path-little-gap-between
-    */
   }
 
   .angle00,
@@ -400,45 +296,19 @@ header {
   }
   .angle00 {
     background-color: rgb(130, 130, 130);
-
-    /*background-color: rgb(47, 209, 55);*/
-    /*background-color: rgb(201, 209, 198);*/
   }
   .angle00:after {
     /*background-color: rgb(235, 235, 235);*/
     background-color: #cef0f8;
-    /* Below fixed missing slit in mobile on chrome */
-
-    /*-webkit-clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
-    clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));*/
-    
     -webkit-clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
     clip-path: polygon(0 100%, 100% 0, 100% calc(100% + .5px));
-
   }
-
 
   .angle1,
   .angle1:after {
     height: 80px;
     width: 100%;
   }
-  
-  /*
-  @media (min-width: 520px) {
-    .angle1,
-    .angle1:after {
-      height: 120px;
-    }
-  }
-  
-  @media (min-width: 900px) {
-    .angle1,
-    .angle1:after {
-      height: 160px;
-    }
-  }
-  */
   
   .angle1 {
     /*background-color: rgb(47, 209, 55);*/
@@ -468,9 +338,6 @@ header {
     background-color: rgb(245,202,141);
     /*background-color: rgb(201, 209, 198);*/
     /*background-color: rgb(47, 209, 55);*/
-    /*-webkit-clip-path: polygon(100% 100%, 0 0, 0 100%);
-    clip-path: polygon(100% 100%, 0 0, 0 100%);*/
-
     -webkit-clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
     clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
   }
@@ -520,7 +387,6 @@ header {
   .angle3-img {
     position: absolute;
     margin-left: 10%;
-    /*margin-top: 5%;*/
     z-index: 1;
     height: 200px;
     width: 125px;
@@ -538,7 +404,6 @@ header {
 
   .angle4,
   .angle4:after {
-    /*height: 80px;*/
     height: 140px;
     width: 100%;
   }
@@ -552,21 +417,13 @@ header {
   .angle4:after {
     background-color: white;
     /*background-color: rgb(35, 131, 0);*/
-    /*-webkit-clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));
-    clip-path: polygon(0 100%, 0 0, 100% calc(100% + .5px));*/
-   
     -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% calc(100% + .5px)); 
     clip-path: polygon(50% 0%, 0% 100%, 100% calc(100% + .5px));
-
-    /*-webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-    clip-path: polygon(50% 100%, 0 0, 100% 0);*/
-
-
   }
   .angle4-img {
     position: absolute;
     margin-left: 5%;
-    margin-top: 4%;
+    margin-top: 2%;
     z-index: 1;
     height: 225px;
     width: 150px;
@@ -577,60 +434,24 @@ header {
     overflow: hidden;
 }
 
-  /*@media screen and (max-width: 600px) {
-    .angle4 {
-        background-color: white;
-      }
-    .angle4:after {
-        background-color: rgb(235, 235, 235);
-        -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-        clip-path: polygon(50% 100%, 0 0, 100% 0);
-    }
-}*/
-
-  /*
-  .angle4-img {
-    position: absolute;
-    margin-right: 80%;
-    margin-top: 237%;
-    z-index: 1;
-    height: 200px;
-    width: 125px;
-    background-image: url("./Resources/images/RiderDown.png");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    overflow: hidden;
-  }
-  */
-  
 
 /* Main Body Wrapper */
 .main-body-wrapper {
     margin: 0 auto;
-    /*padding: 2%;*/
     display: flex;
     align-items: center;
     align-content: center;
-    /*justify-content: space-evenly;*/
     flex-direction: column;
 }
 
     /* About */
     .about-wrapper {
-        /*padding: 10% 0;*/
         padding-top: 75px;
-        /* ***READ*** No padding-bottom done becasue margin-block-end is configured in heightSet() function in JS */
-
-        /*padding: 20px;*/ /* padding-top matches navbar height */
+        /* ***READ*** No padding-bottom done in .about-wrapper becasue margin-block-end is configured in heightSet() function in JS */
         width: 100%;
         /*background-color: rgb(47, 209, 55);*/
         /*background-color: rgb(235, 235, 235);*/
         background-color: #cef0f8;
-
-        /*display: flex;
-        align-items: center;
-        align-content: center;*/
     }
     .about-wrapper h2, .about-wrapper h3 {
         padding-left: 10%;
@@ -645,20 +466,10 @@ header {
         margin-block-start: .25em;
     }
     @media screen and (max-width: 600px) {
-        /*.about-wrapper {
-            padding-top: 15%;
-        }*/
         .about-wrapper h3 {
             padding: 0 10%;
         }
     }
-    /*
-    .about-wrapper img {
-        height: 200px;
-        width: 125px;
-        clip-path: circle(30% at 73px 68px);
-    }
-    */
         .about-container {
             margin: 3% auto;
             width: 80%;
@@ -672,7 +483,6 @@ header {
             margin-left: -1%;
         }
         .about-me-img-wrapper {
-            /*overflow-x: initial;*/
             position: sticky;
             top: 5em;
             margin: 0 auto;
@@ -701,12 +511,6 @@ header {
                 align-items: center;
                 justify-content: space-between;
             }
-           /*.about-me-img-wrapper {
-                margin: 0 auto;
-                height: 300px;
-                width: 187px;
-                clip-path: circle(35% at 100px 145px);
-            }*/
             .about-me-text-wrapper {
                 width: 100%;
             }
@@ -722,9 +526,7 @@ header {
     
     /* Skills */
     .skills-wrapper {
-        /*padding: 6% 0;*/
         padding-top: 75px;
-
         width: 100%;
         /*background-color: rgb(201, 209, 198);*/
         /*background-color: white;*/
@@ -744,12 +546,6 @@ header {
         font-size: 1.25em;
         margin-block-end: .25em;
     }
-    @media screen and (max-width: 600px) {
-        /*.skills-wrapper {
-            padding-top: 15%;  
-        }*/
-    }
-
     .skills-container {
             margin: 3% auto;
             width: 80%;
@@ -768,7 +564,6 @@ header {
                     width: 100px;
                     display: flex;
                     justify-content: space-evenly;
-                    /*align-content: center;*/
                     align-items: center;
                     flex-direction: column;
                     text-align: center;
@@ -781,15 +576,9 @@ header {
         
         /* Sample Work */
         .portfolio-wrapper {
-            /*padding: 5% 0;*/
-            /*padding-top: 10%;*/
             padding-top: 75px;
-
-            padding-bottom: 5%;
+            padding-bottom: 2%;
             width: 100%;
-            /*background-color: rgb(35, 131, 0);*/
-            /*background-color: rgb(235, 235, 235);*/
-            /*background-color: #b6f0a5;*/
             background-color: #afd18f;
         }
         .portfolio-wrapper h2 {
@@ -800,9 +589,6 @@ header {
             font-size: 1.5em;
             margin-block-end: 0;
         }
-        /*.personal-projects-title, .account-manager-projects {
-            color: #f2e5cf;
-        }*/
         .personal-projects-title {
             margin-block-start: 0.25em;
         }
@@ -812,14 +598,8 @@ header {
         }
         .portfolio-wrapper h4 {
             font-size: 1.25em;
-            /*margin-block-start: .25em;
-            margin-block-end: .25em;*/
         }
         @media screen and (max-width: 600px) {
-            /*.portfolio-wrapper {
-                padding-top: 15%;
-                
-            }*/
             .account-manager-projects {
                 margin-top: 8%;
             }
@@ -835,19 +615,14 @@ header {
                 margin: 0 auto;
                 width: 80%;
                 height: 33%;
-
-                /*height: 500px;*/
-
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                /*flex-direction: row;*/
             }
             .first-project-wrapper, .third-project-wrapper, .fifth-project-wrapper {
                 flex-direction: row;
             }
             .second-project-wrapper, .fourth-project-wrapper {
-                /*flex-direction: row-reverse;*/
                 flex-direction: row-reverse;
             }
             @media screen and (max-width: 680px) {
@@ -866,7 +641,6 @@ header {
                     }
                 }
                 .project-img-wrapper {
-                    /*width: 50%*/
                     width: 50%;
                     height: 20em;
                     display: flex;
@@ -949,8 +723,8 @@ header {
                         width: 30%
                     }
                         .project-skill-img {
-                            height: /*3em*/35px;
-                            width: /*3em*/35px;
+                            height: 35px;
+                            width: 35px;
                             background-size: 100%;
                             background-repeat: no-repeat;
                             background-position: center;
@@ -979,14 +753,6 @@ header {
                         .project-jQuery {
                             background-image: url("./Resources/images/jQueryLogo.png");
                         }
-                       /* @media screen and (max-width: 600px) {
-                            .project-vscode {
-                                margin-right: 5%;
-                            }
-                            .project-wordpress {
-                                margin-right: 10%;
-                            }
-                        }*/
                     .project-button, button {
                         height: 50px;
                         width: 150px;
@@ -997,10 +763,6 @@ header {
                         font-family: 'Roboto', 'Mada', sans-serif;
                         /* Current background-color just for contrast */
                         background-color: dodgerblue;
-                        /*background-color: rgb(130, 130, 130);*/
-                        /*background-color: rgb(68, 172, 101);*/
-                        /*background-color: white;*/
-                        /*border: black solid 1px;*/
                         border: 0;
                         display: flex;
                         justify-content: center;
@@ -1016,44 +778,15 @@ header {
                         transition: .15s;
                     }
                     .project-button:hover, button:hover {
-                        /*background-color: rgb(235, 235, 235);*/
-                        /*background-color: rgb(30, 188, 255);*/
                         background-color: black;
                         color: white;
 
                     }
-                
-                    /*
-                    #visit-project-one, #visit-project-three {
-                        margin-top: 1%;
-                    }
-                    #visit-project-two {
-                        margin-top: 1%;
-                    }
-                    #visit-repository-one, #visit-repository-three {
-                        margin-top: 1%;
-                    }
-                    */
-
-                    /* How https://anniebombanie.com/?ltclid=e3c4aacb-6de2-4e82-9f60-37f956b13d38 did image overlay (see cactus)
-                    .skills-wrapper:after {
-                        content: url('/Resources/images/RiderDown.png');
-                        display: block;
-                        position: absolute;
-                        right: -10px;
-                        bottom: -96px;
-                        z-index: 2;
-                        height: auto;
-                        width: 165px;
-                    }
-                    */
 
         /* Contact Section */
         .contact-wrapper {
-            /*padding: 10% 0;*/
             padding-top: 75px;
             padding-bottom: 20px;
-
             width: 100%;
             /*background-color: rgb(129, 163, 117);*/
             background-color: white;
@@ -1074,11 +807,6 @@ header {
             .contact-social-label {
                 font-size: 110%
             }
-        }
-        @media screen and (max-width: 600px) {
-            /*.contact-wrapper {
-                padding-top: 15%;
-            }*/
         }
             .contact-wrapper h2, .contact-wrapper h3 {
                 margin-left: 10%;
@@ -1140,11 +868,6 @@ header {
                 color: white;
                 font-size: xx-small;
             }
-            /*NOT BEING USED YET: May not be possible, related to form submission
-            .submitted-button {
-                display: none;
-            }
-            */
             .social-wrapper {
                 width: 50%;
                 display: flex;
@@ -1178,7 +901,6 @@ footer {
     padding: 2%;
     display: flex;
     justify-content: center;
-    /*background-color: rgb(235, 235, 235);*/
     background-color: rgb(130, 130, 130);
     text-align: center;
     font-family: 'Mada', sans-serif;
@@ -1187,225 +909,3 @@ footer {
 footer span {
     color: white;
 }
-/* Origonal Edits before Saturday */
-
-/*
-/* Main Body Wrapper *
-.main-body-wrapper {
-    margin: 0 auto;
-    /*padding: 2%;*
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-    /* About *
-    .about-wrapper {
-        padding: 4% 0;
-        /*padding: 20px;* /* padding-top matches navbar height *
-        width: 100%;
-        /*background-color: rgb(47, 209, 55);*
-        background-color: rgb(235, 235, 235);
-
-        /*display: flex;
-        align-items: center;
-        align-content: center;*
-    }
-    @media screen and (max-width: 600px) {
-        .about-wrapper {
-            padding: 20% 0;
-            
-        }
-    }
-    .about-wrapper img {
-        height: 200px;
-        width: 125px;
-        clip-path: circle(30% at 73px 68px);
-    }
-        .about-container {
-            margin: 3% auto;
-            width: 80%;
-        }
-        .about-me-img-wrapper {
-            height: 200px;
-            width: 125px;
-            background-image: url("./Resources/images/RiderDown.png");
-            background-size: 80%;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-    
-    /* Skills *
-    .skills-wrapper {
-        padding: 4% 0;
-        width: 100%;
-        /*background-color: rgb(201, 209, 198);*
-        background-color: white;
-    }
-    @media screen and (max-width: 600px) {
-        .skills-wrapper {
-            padding: 20% 0;
-            
-        }
-    }
-        .skills-container {
-            margin: 3% auto;
-            width: 80%;
-
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-            .skills-row {
-                display: flex;
-                justify-content: space-evenly;
-                flex-direction: row;
-            }
-                .skill-box {
-                    height: 100px;
-                    width: 100px;
-                    display: flex;
-                    justify-content: space-evenly;
-                    /*align-content: center;*
-                    align-items: center;
-                    flex-direction: column;
-                    text-align: center;
-                    font-size: smaller;
-                }
-                    .skill-box span {
-                        width: max-content;
-                    }
-
-        
-        /* Sample Work *
-        .portfolio-wrapper {
-            padding: 5% 0;
-            width: 100%;
-            /*background-color: rgb(35, 131, 0);*
-            background-color: rgb(235, 235, 235);
-        }
-        @media screen and (max-width: 600px) {
-            .portfolio-wrapper {
-                padding: 20% 0;
-                
-            }
-        }
-            .portfolio-wrapper h2 {
-                margin-left: 10%;
-            }
-            .first-project-wrapper, .second-project-wrapper, .third-project-wrapper {
-                margin: 3% auto;
-                width: 80%;
-
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                /*flex-direction: row;*
-            }
-            .first-project-wrapper, .third-project-wrapper {
-                flex-direction: row;
-            }
-            .second-project-wrapper {
-                flex-direction: row-reverse;
-            }
-            @media screen and (max-width: 680px) {
-                .first-project-wrapper, .second-project-wrapper, .third-project-wrapper {
-                    flex-direction: column-reverse;
-                }
-                .project-img-wrapper {
-                    width: 100%;
-                    height: 10em;
-                }
-            }
-
-                .project-description-container {
-                    width: 50%;
-
-                    display: flex;
-                    justify-content: space-between;
-                    flex-direction: column;
-                }
-                .project-img-wrapper {
-                    width: 50%;
-                    height: 20em;
-                    display: flex;
-                    justify-content: center;
-                }
-                @media screen and (max-width: 600px) {
-                    .project-img-wrapper {
-                        width: 80%;
-                        height: 15em;
-                    }
-                }
-                @media screen and (max-width: 500px) {
-                    .project-img-wrapper {
-                        width: 70%;
-                        height: 10em;
-                    }
-                }
-                @media screen and (max-width: 450px) {
-                    .project-img-wrapper {
-                        width: 90%;
-                        height: 10.5em;
-                    }
-                }
-                @media screen and (max-width: 375px) {
-                    .project-img-wrapper {
-                        width: 100%;
-                        height: 10.5em;
-                    }
-                }
-                .project-img-wrapper1 {
-                    background-image: url("./Resources/images/TankBattleMockUp.png");
-                    background-size: 100%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                }
-                .project-img-wrapper2 {
-                    background-image: url("./Resources/images/STSMockUp.png");
-                    background-size: 100%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                }
-                .project-img-wrapper3 {
-                    background-image: url("./Resources/images/ModernApothecaMockUp.png");
-                    background-size: 100%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-
-                }
-                    .project-skills-wrapper {
-                        width: 25%;
-                        display: flex;
-                        justify-content: space-between;
-                        flex-direction: row;
-                        align-items: flex-start;
-
-                    }
-                    .project-button {
-                        height: 50px;
-                        width: 150px;
-                        border-radius: 15px;
-                        /* Current background-color just for contrast *
-                        background-color: dodgerblue;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        cursor: pointer;
-                    }
-                    #visit-project-one, #visit-project-three {
-                        margin-top: 1%;
-                    }
-                    #visit-project-two {
-                        margin-top: 1%;
-                    }
-                    #visit-repository-one, #visit-repository-three {
-                        margin-top: 1%;
-                    }
-
-*/
