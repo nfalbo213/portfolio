@@ -9,13 +9,9 @@ canvas.width = window.innerWidth;
 canvas.style.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style.height = window.innerHeight;
-//const canvasHeight = 900;
-//const canvasWidth
 
 // {x: number, y: number, velocity: number, isRider: boolean, isTree: boolean, isSnowman: boolean, isLog: boolean, isRock: boolean, movingDown: boolean traverseNum: number}
 let objectArr = [];
-/*let snowboardArr = [];
-let obstacleArr = [];*/
 
 let animationObject = {isWindowResizing: false, haveObjectsReset: false};
 
@@ -28,77 +24,44 @@ let logImg;
 let rockImg;
 
 riderImg = new Image((canvas.width * .05), (canvas.height * .05));
-riderImg.src = "./Resources/images/GoofyRider.png"
+riderImg.src = "./Resources/images/GoofyRider.png";
 
-riderUpImg = new Image(/*120, 160*/100, 140);
-//riderUpImg = new Image(17, 17);
-//riderUpImg = new Image((canvas.width * .05), (canvas.height * .05));
-riderUpImg.src = "./Resources/images/RiderUp2.png"
+riderUpImg = new Image(100, 140);
+riderUpImg.src = "./Resources/images/RiderUp2.png";
 
-//riderDownImg = new Image(17, 17);
-riderDownImg = new Image(100, 140/*50, 65*/);
-//riderDownImg = new Image((canvas.width * .05), (canvas.height * .05));
-riderDownImg.src = "./Resources/images/RiderDown.png"
+riderDownImg = new Image(100, 140);
+riderDownImg.src = "./Resources/images/RiderDown.png";
 
-treeImg = new Image(/*65, 85*//*140, 165*/195, 225);
-//treeImg = new Image(20, 20);
-//treeImg = new Image((canvas.width * .05), (canvas.height * .05));
-treeImg.src = "./Resources/images/PineTree.png"
+treeImg = new Image(195, 225);
+treeImg.src = "./Resources/images/PineTree.png";
 
-snowmanImg = new Image(70, 80)
-//snowmanImg = new Image(45, 55);
-//snowmanImg = new Image(17, 17);
-//snowmanImg = new Image((canvas.width * .05), (canvas.height * .05));
-snowmanImg.src = "./Resources/images/Snowman.png"
+snowmanImg = new Image(70, 80);
+snowmanImg.src = "./Resources/images/Snowman.png";
 
 logImg = new Image(50, 65);
-//logImg = new Image(30, 40);
-//logImg = new Image(15, 15);
-//logImg = new Image((canvas.width * .05), (canvas.height * .05));
-logImg.src = "./Resources/images/Logs.png"
+logImg.src = "./Resources/images/Logs.png";
 
 rockImg = new Image(110, 130);
-//rockImg = new Image(60, 70);
-//rockImg = new Image(20, 20);
-//rockImg = new Image((canvas.width * .05), (canvas.height * .05));
-rockImg.src = "./Resources/images/Rock.png"
+rockImg.src = "./Resources/images/Rock.png";
 
 // Main Functions
 
 const mainAnimation = () => {
 
-    /*
-    canvas_ctx.scale(2, 2);
-    canvas_ctx.mozImageSmoothingEnabled = false;  // firefox
-    canvas_ctx.imageSmoothingEnabled = false;
-    */
-
-    // Wrapping in this statement or clearing interval (see below) both work
-    //if (!animationObject.isWindowResizing) {
-
     const timer = setInterval(function(){
 
-        //const heightRatio = 1.5;
         canvas_ctx.fillStyle = canvasBackground;
         canvas_ctx.fillRect(0, 0, canvas.width, canvas.height);
-        //canvas_ctx.fillRect(0, 0, canvas.width, canvas.width * heightRatio);
 
         drawObjects();
         animationAI();
 
-        /*if (animationObject.isWindowResizing) {
-            clearInterval(timer);
-            return;
-        }*/
-
-    }, /*60*/20);
+    }, 20);
 
     if (animationObject.isWindowResizing) {
         clearInterval(timer);
         return;
     }
-
-    //}
     
 }
 
@@ -119,64 +82,22 @@ const generateRandomObject = () => {
 
     // Generate x and y coordinates
 
-    // Help spread out objects from each other
-    //let randomX = Math.floor(Math.random() * 100);
-    //let randomPosY = Math.floor(Math.random() * 35)
-    //let randomNegY = Math.floor(Math.random() * 40)
-    
-    // Below for -1 velocityY
-    /*
-    let randomPosY = Math.floor(Math.random() * 60)
-    let randomNegY = Math.floor(Math.random() * 200)
-    */
-    // Below for -2 velocityY
-    //let randomPosY = Math.floor(Math.random() * 60)
-    //let randomNegY = Math.floor(Math.random() * 400)
-
     const randomCoordinate = (min, max) => {
         return Math.round((Math.random() * (max-min) + min) / 10) * 10;
       }
-    
-      //console.log(random_X());
     
     if (!animationObject.haveObjectsReset) {
 
         x = randomCoordinate(-canvas.width / 2, canvas.width);
         y = randomCoordinate(0, canvas.height * 2);
-        //animationObject.haveObjectsReset = true;
-        //console.log('reset hasnt happened');
 
     }
     else if (animationObject.haveObjectsReset) {
 
         x = randomCoordinate(-canvas.width * 2, 0 - (canvas.width / 2));
         y = randomCoordinate(canvas.height / 4, canvas.height * 1.5);
-        //console.log('reset has happened');
 
     }
-
-    //implicated in generateManyObjects
-    //animationObject.haveObjectsReset = true;
-    
-
-    // Start x 100-500px behind 0
-
-    // Start x 100-500px behind 0
-    
-    // ***** x = 0 - ((100 + randomX) + (Math.floor(Math.random() * 5) * 100));
-    
-    //console.log(x);
-    // Keep y in/near the center; 300 <= y <= 600
-    //y = 0 + (300 + Math.floor(Math.random() * 3) * 100);
-    
-    // ******** y = 0 + (((canvas.height) - (randomPosY - randomNegY)) + Math.floor(Math.random() * 3));
-    //console.log(y);
-
-    // Generate x and y velocities
-    /*
-    velocityX = 5;
-    velocityY = 0;
-    */
 
     // Define object type
     let num = Math.floor(Math.random() * 100);
@@ -222,10 +143,7 @@ const generateRandomObject = () => {
 
     
     if (isTree || isSnowman || isLog || isRock) {
-        //velocityX = 5;
         velocityX = 7;
-        //velocityY = 0;
-        //velocityY = -3;
         velocityY = -2;
     }
     // Redundent unless want to add extra riders later on
@@ -242,8 +160,6 @@ const generateRandomObject = () => {
         let arr = [];
         arr.push({x: x, y: y, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown});
 
-        //console.log('initial happened');
-
         for (let i = objectArr.length - 1; i >= 0; i--) {
 
             if (objectArr[i] === arr[0]) {
@@ -252,10 +168,8 @@ const generateRandomObject = () => {
                 i = -1;
                 return;
             } 
-            //else if (objectArr[i].x <= arr[0].x - 5 && objectArr[i].x >= arr[0].x + 30 && objectArr[i].y <= arr[0].y - 5 && objectArr[i].y >= + 30) {
             if ((objectArr[i].x + treeImg.width / 2) >= arr[0].x - treeImg.width && (objectArr[i].x + treeImg.width / 2) <= arr[0].x + treeImg.width && objectArr[i].y  >= arr[0].y - treeImg.height && objectArr[i].y <= + treeImg.height) {
                 arr.splice(0, 1);
-                //console.log('happened');
                 generateRandomObject();
                 i = -1;
                 return;
@@ -266,9 +180,6 @@ const generateRandomObject = () => {
     }
 
     if (isTree) {
-        //lowerY = y; //+ /*treeImg.height*//*50*/2;
-        //lowerY = y + treeImg.height;
-        //lowerY = y + riderDownImg.height;
         lowerY = y + treeImg.height;
     }
     else if (isSnowman) {
@@ -286,27 +197,17 @@ const generateRandomObject = () => {
 }
 
 const generateManyObjects = () => {
-    
-    //if (!animationObject.haveObjectsReset) {
-        //console.log('this happened');
-        
-    
 
     // Bigger i = more objects, good for smaller animation sizes
     let i;
+    
     if (canvas.width >= 800) {
         i = 18;
     } else if (canvas.width < 800) {
         i = 8;
     }
-    //let i = 18;
     
     do {
-        
-        /*if (animationObject.haveObjectsReset) {
-            console.log('this happened');
-            break;
-        }*/
         generateRandomObject();
         i--;
 
@@ -316,32 +217,9 @@ const generateManyObjects = () => {
         animationObject.haveObjectsReset = true;
     }
 
-    //} else {
-        //animationObject.haveObjectsReset = true;
-   // }
-
 }
 
 const generateRider = () => {
-
-    // Below is needed only if you only want to regenerate rider coordinates upon resizing
-    /*if (animationObject.isWindowResizing) {
-
-        let i = objectArr.length - 1;
-
-        while (i > -1) {
-
-            if (objectArr[i].isRider) {
-                objectArr.splice(i, 1);
-                // May no longer need haveObjectsReset
-                animationObject.haveObjectsReset = true;
-                break
-            }
-            i--;
-
-        }
-
-    }*/
     
     let x;
     let y;
@@ -369,11 +247,7 @@ const generateRider = () => {
     isRider = true;
     isLog = false;
     isRock = false;
-
-    //lowerY = y - /*riderDownImg.height*/50;
-    //lowerY = y;
-    //lowerY = y + treeImg.height;
-    lowerY = y + riderDownImg.height /* /1.2 when !movingDown*/;
+    lowerY = y + riderDownImg.height;
 
     objectArr.push({x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock,  movingDown: movingDown, traverseNum: traverseNum});
 
@@ -381,11 +255,8 @@ const generateRider = () => {
 
 const sortObjects = () => {
 
-    //console.log('sortObjects happened');
     // Sort objects so anything 'downhill' gets drawn last; accomplish this by sorting array so that the objects with the smallest y are at beginning of the array
     objectArr.sort(function (a, b) {
-        //console.log('sort happened');
-        //return a.y - b.y;
         return a.lowerY - b.lowerY;
       });
     objectArr.reverse();
@@ -395,61 +266,36 @@ const sortObjects = () => {
     let treeArr = [];
 
     let riderObjIndex;
-    //let arr = [];
 
     for (let i = objectArr.length - 1; i >= 0; i--) {
-        //console.log('for loop happened');
-        //console.log(i);
+
         if (objectArr[i].isRider) {
             riderArr.push(objectArr[i]);
-            //objectArr.splice(i, 1);
             console.log(riderArr[0]);
-            //i--;
-
-            riderObjIndex = i;
-            //console.log('riderIndex loop happened');
-            //i = -1;
-            //return;
-            
+            riderObjIndex = i; 
         } 
         
         else if (objectArr[i].isTree) {
             treeArr.push(objectArr[i]);
-           // i--;
         } 
-        
-        /*else {
-            console.log('else happened');
-        } */
 
     }
 
     for (let i = objectArr.length - 1; i >= 0; i--) {
 
-        /*if (objectArr[i] === objectArr[riderObjIndex]) {
-            //console.log('i and index === happened');
-            //return;
-        }
-        else */if (objectArr[i].isTree) {
-            //if (objectArr[i].y + treeImg.height >= objectArr[riderObjIndex].y + riderImg.height && objectArr[i].y <= objectArr[riderObjIndex].y) {
-                if (objectArr[i].y + treeImg.height >= objectArr[riderObjIndex].y + riderDownImg.height && objectArr[i].y <= objectArr[riderObjIndex].y + riderDownImg.height && objectArr[i].x + treeImg.width >= objectArr[riderObjIndex].x - riderDownImg.width && objectArr[i].x - treeImg.width >= objectArr[riderObjIndex].x - riderDownImg.width/* && objectArr[i].y <= objectArr[riderObjIndex].y*/) {
-                //if (objectArr[i].y + treeImg.height > riderArr[0].y + riderImg.height && objectArr[i].y < riderArr[0].y) {
-                //console.log('1 '+objectArr);
+        if (objectArr[i].isTree) {
+
+                if (objectArr[i].y + treeImg.height >= objectArr[riderObjIndex].y + riderDownImg.height && objectArr[i].y <= objectArr[riderObjIndex].y + riderDownImg.height && objectArr[i].x + treeImg.width >= objectArr[riderObjIndex].x - riderDownImg.width && objectArr[i].x - treeImg.width >= objectArr[riderObjIndex].x - riderDownImg.width) {
+
                 riderArr.push(objectArr[riderObjIndex]);
                 treeArr.push(objectArr[i]);
-                //objectArr.reverse();
                 objectArr.splice(objectArr[i], 1, riderArr[0]);
                 objectArr.splice(objectArr[riderObjIndex], 1, treeArr[0]);
                 riderObjIndex = i;
-                //objectArr.reverse();
-
                 riderArr.splice(0, riderArr.length);
                 treeArr.splice(0, treeArr.length);
-                //console.log('2 '+objectArr[riderObjIndex].y)
-                //return;
-            } /*else {
-                return;
-            }*/
+
+            } 
 
         }
 
@@ -462,20 +308,7 @@ const drawObjects = () => {
     // Ensure error doesn't occur
     if (objectArr.length > 0) {
 
-        // Sort objects so anything 'downhill' gets drawn last; accomplish this by sorting array so that the objects with the smallest y are at beginning of the array
-        /*
-        objectArr.sort(function (a, b) {
-            return a.y - b.y;
-          });
-        objectArr.reverse();
-        console.log(objectArr);
-        */
-
-       //sortObjects();
-
        objectArr.sort(function (a, b) {
-            //console.log('sort happened');
-            //return a.y - b.y;
             return a.lowerY - b.lowerY;
         });
         objectArr.reverse();
@@ -653,14 +486,12 @@ const animationAI = () => {
             objectArr[i].x += objectArr[i].velocityX;
             objectArr[i].y += objectArr[i].velocityY;
 
-        /* *** Added during lowerY testing; 8/29/21 *** */
             objectArr[i].lowerY += objectArr[i].velocityY;
 
             // Remove from Array if off screen and generate new one
             if (objectArr[i].x >= canvas.width + 200) {
                 objectArr.splice(i, 1);
                 generateRandomObject();
-                //i = -1;
             }
 
         }
@@ -718,42 +549,18 @@ const animationAI = () => {
                 objectArr[i].traverseNum = 0;
             }
 
-
-            /*
-            if (objectArr[i].y === ((canvas.height / 2) - 3)) {
-                objectArr[i].velocityY = 0;
-                objectArr[i].velocityY += 1;
-                objectArr[i].velocityX = 0;
-                objectArr[i].velocityX -= 1;
-                objectArr[i].movingDown = true;
-                objectArr[i].traverseNum += 1;
-            }
-            else if (objectArr[i].y === ((canvas.height / 2) + 17)) {
-                objectArr[i].velocityY = 0;
-                objectArr[i].velocityY -= 1;
-                objectArr[i].velocityX = 0;
-                objectArr[i].velocityX += .9;
-                objectArr[i].movingDown = false;
-                objectArr[i].traverseNum += 1;
-            }
-            */
-
             riderAvoidObjects();
 
             objectArr[i].x += objectArr[i].velocityX;
             objectArr[i].y += objectArr[i].velocityY;
 
-            /* *** Added during lowerY testing; 8/29/21 *** */
             objectArr[i].lowerY += objectArr[i].velocityY;
-
-            //riderAvoidObjects();
 
             // Remove from Array if off screen and generate new one
                 // Not currently nessecary if isRider (save for possible game or if make animation w/ rider moving)
             if (objectArr[i].x >= canvas.width + 200) {
                 objectArr.splice(i, 1);
                 generateRandomObject();
-                //i = -1;
             }
 
         }
@@ -831,15 +638,6 @@ const canvasButton = document.getElementById('canvas-welcome-button');
 // Profile Picture Variables
 const scrollWrapper = document.getElementById('about-scroll-wrapper');
 const textWrapper =document.getElementById('about-text-wrapper');
-
-//NOT BEING USED YET: 
-/*
-const contactForm = document.getElementById('contact-form');
-const sendButton = document.getElementById('send-button');
-const submittedButton = document.getElementById('submitted-button');
-*/
-////
-
 
 /////////////
 // Functions
@@ -965,15 +763,6 @@ navFour.onpointerup = (event) => {
 
 }
 
-// Close menu bar if scroll
-/* 
-window.addEventListener ('scroll', (event) => {
-
-        burgerSpin();
-
-});
-*/
-
 // CANVAS BUTTON FUNCTIONS ///////////////////////////
 
 canvasButton.onpointerover = (event) => {
@@ -1038,28 +827,6 @@ window.addEventListener ('resize', (event) => {
 
 });
 
-
-
-//NOT ADDING YET: still need to work it out - it may not be possible w/o talking to the formspree server
-/*
-sendButton.onpointerup = (event) => {
-
-    submittedButton.style.display = 'inherit';
-    contactForm.style.display = 'none';
-    event.preventDefault();
-}
-
-submittedButton.onpointerup = (event) => {
-
-    // return submitted button back to not being visible
-    submittedButton.style.display = '';
-    // return contact form to original state
-    contactForm.style.display = 'flex';
-    contactForm.body.innerHTML = "";
-    event.preventDefault();
-}
-*/
-
 /* ********
 * Should be in responsive.js *
 **********
@@ -1070,50 +837,5 @@ submittedButton.onpointerup = (event) => {
 
 generateRider();
 generateManyObjects();
-
-//canvas_ctx.scale(3, 3);
-//canvas_ctx.scale(1.1, 1.1);
-//canvas_ctx.mozImageSmoothingEnabled = false;  // firefox
-//canvas_ctx.imageSmoothingEnabled = false;
-
 mainAnimation();
 
-
-
-
-////////////////////
-/*
-//$(document).ready() shorthand
-$(function () {
-    //for variable "navLink", get the first <li> element in the document with document.querySelectorAll
-    let navLinks = document.querySelectorAll('nav ul li');
-  
-    //window event listener tracking user's scroll
-    window.addEventListener('scroll', e => {
-      //variable retrieving number of pixels which the contents of the document are scrolled on Y axis.
-      let fromTop = window.scrollY;
-  
-      //map through navLinks variable...
-      navLinks.forEach(link => {
-        // document.querySelector returns first element within the document that matches the specified selector and .hash returns the anchor part of URL
-        let section = document.querySelector(link.hash);
-        // console.log(section);
-        if (
-          //calculates user's Y axis scroll and the height of where each section is located
-          section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop
-        ) {
-          // add a class of current if its within the range of the viewport of the section
-          link.classList.add('current');
-        } else {
-          // remove the class of current if its outside the range of viewport of the section
-          link.classList.remove('current');
-        }
-      });
-    });
-  
-    //hamburger menu- on click of link, minimise overlay nav
-    $('a').on('click', function(){
-      $('input[type=checkbox]').prop('checked', false);
-    });
-  });
-  */
