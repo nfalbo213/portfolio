@@ -912,13 +912,11 @@ header {
                     background-repeat: no-repeat;
                     background-position: center;
                     cursor: pointer;
+                    transition: .15s;
                 }
-            
-
-
-
-
-
+            .github-link:hover {
+            opacity: .55;
+                }
 
 /* ^^ End of Main Body Wrapper ^^ */
 
