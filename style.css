@@ -75,6 +75,8 @@ header {
             position: fixed;
             margin-left: 90%;
             margin-top: 10px;
+            background-color: rgb(130, 130, 130);
+            border: 0;
         }
         .x-span, .middle-span {
             right: 4px;
@@ -779,7 +781,7 @@ header {
                         .project-jQuery {
                             background-image: url("./Resources/images/jQueryLogo.png");
                         }
-                    .project-button, button {
+                    .project-button, .email-button {
                         height: 50px;
                         width: 150px;
                         margin: 1% 0;
@@ -803,7 +805,7 @@ header {
                         -o-transition: .15s;
                         transition: .15s;
                     }
-                    .project-button:hover, button:hover {
+                    .project-button:hover, .email-button:hover {
                         background-color: black;
                         color: white;
 
