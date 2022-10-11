@@ -802,42 +802,39 @@ canvasButton.onpointerleave = (event) => {
 
 const heightSet = () => {
 
-    // ****READ*** Might want to set styling with media queries at max-width 600px instead in order to keep styling all in one place
-    textWrapper.style.marginBlockEnd = '-4.5em';
-    scrollWrapper.style.marginBlockEnd = '-4.5em';
+    // Check to see if mobile browser
+    let width = window.innerWidth;
 
-    let fixedHeight = textWrapper.getBoundingClientRect();
-
-    scrollWrapper.style.height = `${fixedHeight.height}px`;
+    // For Desktop browser
+    if (width >= 600) {
+    
+        // ****READ*** Might want to set styling with media queries at max-width 600px instead in order to keep styling all in one place
+        // Set bottom of about section to be lower
+        textWrapper.style.marginBlockEnd = '-4.5em';
+        scrollWrapper.style.marginBlockEnd = '-4.5em';
+        // Measure height of text div
+        let fixedHeight = textWrapper.getBoundingClientRect();
+        // Set height of profile pic div to match text div
+        scrollWrapper.style.height = `${fixedHeight.height}px`;
+    
+    // For Mobile browser
+    } else {
+        scrollWrapper.style.height = '100%';
+        scrollWrapper.style.marginBlockEnd = '0';
+        textWrapper.style.marginBlockEnd = '0';
+    }
 
 }
 
 window.addEventListener ('load', (event) => {
 
-    let width = window.innerWidth;
-
-    if (width >= 600) {
-        heightSet();
-    } else {
-        scrollWrapper.style.height = '100%';
-        scrollWrapper.style.marginBlockEnd = '0';
-        textWrapper.style.marginBlockEnd = '0';
-    }
-
+   heightSet();
 
 });
 
 window.addEventListener ('resize', (event) => {
 
-    let width = window.innerWidth;
-
-    if (width >= 600) {
-        heightSet();
-    } else {
-        scrollWrapper.style.height = '100%';
-        scrollWrapper.style.marginBlockEnd = '0';
-        textWrapper.style.marginBlockEnd = '0';
-    }
+    heightSet();
 
 });
 
