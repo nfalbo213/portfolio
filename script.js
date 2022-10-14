@@ -777,17 +777,19 @@ navFour.onpointerup = (event) => {
 
 }
 
+// Neither solution made difference for mobile navbar response issue
 /*window.addEventListener ('resize', (event) => {
 
     navBar.style.height = '70px';
 
 });*/
-
+/*
 window.addEventListener ('scroll', (event) => {
 
     navBar.style.height = '70px';
 
 });
+*/
 
 
 // CANVAS BUTTON FUNCTIONS ///////////////////////////
