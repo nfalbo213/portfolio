@@ -777,6 +777,12 @@ navFour.onpointerup = (event) => {
 
 }
 
+window.addEventListener ('resize', (event) => {
+
+    navBar.style.height = '70px';
+
+});
+
 // CANVAS BUTTON FUNCTIONS ///////////////////////////
 
 canvasButton.onpointerover = (event) => {
