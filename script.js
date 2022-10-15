@@ -722,7 +722,7 @@ const burgerSpin = () => {
     
 }
 
-hamburger.onpointerdown = (event) => {
+hamburger.onmousedown = (event) => {
     
     event.preventDefault();
     burgerSpin();
