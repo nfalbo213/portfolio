@@ -24,7 +24,7 @@ canvas.style.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style.height = window.innerHeight;
 
-// {x: number, y: number, velocity: number, isRider: boolean, isTree: boolean, isSnowman: boolean, isLog: boolean, isRock: boolean, movingDown: boolean traverseNum: number}
+// Structure of eact object in objectArr = {x: number, y: number, velocity: number, isRider: boolean, isTree: boolean, isSnowman: boolean, isLog: boolean, isRock: boolean, movingDown: boolean traverseNum: number}
 let objectArr = [];
 
 let animationObject = {isWindowResizing: false, haveObjectsReset: false};
