@@ -843,12 +843,14 @@ const heightSet = () => {
 
 window.addEventListener ('load', (event) => {
 
-   heightSet();
+    event.preventDefault();
+    heightSet();
 
 });
 
 window.addEventListener ('resize', (event) => {
 
+    event.preventDefault();
     heightSet();
 
 });
