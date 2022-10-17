@@ -212,6 +212,7 @@ function randomCoordinateX(max) {
 function randomCoordinateY(max) {
 
     // figure out if cooridnates will be over or under canvas.height
+    // **TODO** Can probably refactor this section
     let overUnder;
     let num = Math.floor(Math.random() * 100);
     if (num <= 50) {
@@ -249,21 +250,9 @@ function generateRandomObject() {
     let isRock;
     let movingDown;
 
-
     // Generate x and y coordinates
-    /*const randomCoordinate = (min, max) => {
-        //return Math.round((Math.random() * (max - min) + min) / 10) * 10;
-        Math.floor(Math.random() * max);
-    };*/
-
-        x = randomCoordinateX(canvas.width);
-        y = randomCoordinateY(canvas.height);
-
-        //console.log(canvas.width);
-        //console.log(canvas.height);
-
-        //console.log('x: '+ x);
-        //console.log('y: '+ y);
+    x = randomCoordinateX(canvas.width);
+    y = randomCoordinateY(canvas.height);
 
     // Define object type
     let num = Math.floor(Math.random() * 100);
