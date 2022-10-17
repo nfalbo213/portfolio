@@ -16,7 +16,7 @@ Copyright 2022 Nick Falbo
 ////////////////////
 // Local Variables
 const scrollWrapper = document.getElementById('about-scroll-wrapper');
-const textWrapper =document.getElementById('about-text-wrapper');
+const textWrapper = document.getElementById('about-text-wrapper');
 
 ////////////////////////
 // Exported Functions
