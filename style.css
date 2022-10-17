@@ -258,7 +258,7 @@ header {
                     z-index: 5;
                     height: 200px;
                     width: 125px;
-                    background-image: url("./Resources/images/Snowman.png");
+                    background-image: url("./images/Snowman.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -366,7 +366,7 @@ header {
     z-index: 1;
     height: 200px;
     width: 125px;
-    background-image: url("./Resources/images/Logs.png");
+    background-image: url("./images/Logs.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -409,7 +409,7 @@ header {
     z-index: 1;
     height: 200px;
     width: 125px;
-    background-image: url("./Resources/images/PineTree.png");
+    background-image: url("./images/PineTree.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top;
@@ -447,7 +447,7 @@ header {
     z-index: 1;
     height: 225px;
     width: 150px;
-    background-image: url("./Resources/images/RiderDown.png");
+    background-image: url("./images/RiderDown.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -508,7 +508,7 @@ header {
             margin-left: -1%;
             height: 400px;
             width: 300px;
-            background-image: url("./Resources/images/ResizedWideProfilePic.jpeg");
+            background-image: url("./images/ResizedWideProfilePic.jpeg");
             background-size: 100%;
             background-repeat: no-repeat;
             background-position: center;
@@ -717,35 +717,35 @@ header {
                     }
                 }
                 .project-img-wrapper1 {
-                    background-image: url("./Resources/images/TankBattleMockUp.png");
+                    background-image: url("./images/TankBattleMockUp.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
 
                 }
                 .project-img-wrapper2 {
-                    background-image: url("./Resources/images/STSMockUp.png");
+                    background-image: url("./images/STSMockUp.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
 
                 }
                 .project-img-wrapper3 {
-                    background-image: url("./Resources/images/PortfolioMockUp.png");
+                    background-image: url("./images/PortfolioMockUp.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
 
                 }
                 .project-img-wrapper4 {
-                    background-image: url("./Resources/images/ComfortShieldMockUp.png");
+                    background-image: url("./images/ComfortShieldMockUp.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
 
                 }
                 .project-img-wrapper5 {
-                    background-image: url("./Resources/images/ModernApothecaMockUp.png");
+                    background-image: url("./images/ModernApothecaMockUp.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -770,28 +770,28 @@ header {
                             background-position: center;
                         }
                         .project-html5 {
-                            background-image: url("./Resources/images/HTML5.png");
+                            background-image: url("./images/HTML5.png");
                         }
                         .project-css3 {
-                            background-image: url("./Resources/images/CSS3.png");
+                            background-image: url("./images/CSS3.png");
                         }
                         .project-javascript {
-                            background-image: url("./Resources/images/JavaScript.png");
+                            background-image: url("./images/JavaScript.png");
                         }
                         .project-vscode {
-                            background-image: url("./Resources/images/vscode.png");
+                            background-image: url("./images/vscode.png");
                         }
                         .project-github {
-                            background-image: url("./Resources/images/GitHubOfficial.png");
+                            background-image: url("./images/GitHubOfficial.png");
                         }
                         .project-wordpress {
-                            background-image: url("./Resources/images/WordPressLogo.png");
+                            background-image: url("./images/WordPressLogo.png");
                         }
                         .project-elementor {
-                            background-image: url("./Resources/images/ElementorPink.png");
+                            background-image: url("./images/ElementorPink.png");
                         }
                         .project-jQuery {
-                            background-image: url("./Resources/images/jQueryLogo.png");
+                            background-image: url("./images/jQueryLogo.png");
                         }
                     .project-button, .email-button {
                         height: 50px;
@@ -921,7 +921,7 @@ header {
             .github-link {
                     height: 50px;
                     width: 50px;
-                    background-image: url("./Resources/images/GitHubOfficial.png");
+                    background-image: url("./images/GitHubOfficial.png");
                     background-size: 100%;
                     background-repeat: no-repeat;
                     background-position: center;
