@@ -29,110 +29,77 @@ let animationObject = {isWindowResizing: false, haveObjectsReset: false};
 /////////////////////
 // Local Functions
 
+// Invoked in drawObjects
+function drawRider(i) {
+    if (objectArr[i].movingDown) {
+        canvas_ctx.drawImage(riderDownImg, objectArr[i].x, objectArr[i].y, riderDownImg.width, riderDownImg.height);
+        // Below are dots used for positioning
+        /*
+        canvas_ctx.fillStyle = 'red';
+        canvas_ctx.strokestyle = 'red';
+        canvas_ctx.fillRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
+        canvas_ctx.strokeRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
+        */
+    } else if (!objectArr[i].movingDown) {
+        canvas_ctx.drawImage(riderUpImg, objectArr[i].x, objectArr[i].y, riderUpImg.width, riderUpImg.height);
+    }
+}
+
+// Invoked in drawObjects
+function sortObjects() {
+    // Sort objectArr so that objecsts with the smallest lowerY are at the beginning of the array
+    objectArr.sort(function (a, b) {
+        return a.lowerY - b.lowerY;
+    });
+    // Reverse order becasue objects do... while loop in drawObjects starts at end of array
+    objectArr.reverse();
+}
+
 // Invoked in mainAnimation
 function drawObjects() {
-
-    // Ensure error doesn't occur
-    if (objectArr.length > 0) {
-
-        // Sort objects so anything 'downhill' gets drawn last; accomplish this by sorting array so that the objects with the smallest y are at beginning of the array
-        objectArr.sort(function (a, b) {
-            return a.lowerY - b.lowerY;
-        });
-        objectArr.reverse();
-
-
-        let i = objectArr.length - 1;
-
-        do {
-
-            if (objectArr[i].isRider) {
-                if (objectArr[i].movingDown) {
-                    canvas_ctx.drawImage(riderDownImg, objectArr[i].x, objectArr[i].y, riderDownImg.width, riderDownImg.height);
-
-                    // Below are dots used for positioning
-                    /*
-                    canvas_ctx.fillStyle = 'red';
-                    // Set the border colour of the round
-                    canvas_ctx.strokestyle = 'red';
-                    // Draw a "filled" rectangle to represent the round at the coordinates the round is located
-                    canvas_ctx.fillRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                    // Draw a border around the round
-                    canvas_ctx.strokeRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                    */
-                }
-                else if (!objectArr[i].movingDown) {
-                    canvas_ctx.drawImage(riderUpImg, objectArr[i].x, objectArr[i].y, riderUpImg.width, riderUpImg.height);
-
-                    // Below are dots used for positioning
-                    /*
-                    canvas_ctx.fillStyle = 'red';
-                    // Set the border colour of the round
-                    canvas_ctx.strokestyle = 'red';
-                    // Draw a "filled" rectangle to represent the round at the coordinates the round is located
-                    canvas_ctx.fillRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                    // Draw a border around the round
-                    canvas_ctx.strokeRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                    */
-                }
-                //canvas_ctx.drawImage(riderImg, objectArr[i].x, objectArr[i].y, riderImg.width, riderImg.height);
-            }
-            else if (objectArr[i].isTree) {
-                canvas_ctx.drawImage(treeImg, objectArr[i].x, objectArr[i].y, treeImg.width, treeImg.height);
-
-                // Below are dots used for positioning
-                /*
-                canvas_ctx.fillStyle = 'red';
-                // Set the border colour of the round
-                canvas_ctx.strokestyle = 'red';
-                // Draw a "filled" rectangle to represent the round at the coordinates the round is located
-                canvas_ctx.fillRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                // Draw a border around the round
-                canvas_ctx.strokeRect(objectArr[i].x, objectArr[i].lowerY, 2, 2);
-                */
-            }
-            else if (objectArr[i].isSnowman) {
-                canvas_ctx.drawImage(snowmanImg, objectArr[i].x, objectArr[i].y, snowmanImg.width, snowmanImg.height);
-            }
-            else if (objectArr[i].isRock) {
-                canvas_ctx.drawImage(rockImg, objectArr[i].x, objectArr[i].y, rockImg.width, rockImg.height);
-            }
-            else if (objectArr[i].isLog) {
-                canvas_ctx.drawImage(logImg, objectArr[i].x, objectArr[i].y, logImg.width, logImg.height);
-            }
-
-            i--;
-
-        } while (i >= 0);
-
-    } else {
-        return;
-    }
-
+    // Sort objects so anything 'downhill' gets drawn last
+    sortObjects();
+    let i = objectArr.length - 1;
+    // Loop through objectArr and draw each object
+    do {
+        if (objectArr[i].isRider) {
+            drawRider(i);
+        }
+        else if (objectArr[i].isTree) {
+            canvas_ctx.drawImage(treeImg, objectArr[i].x, objectArr[i].y, treeImg.width, treeImg.height);
+        }
+        else if (objectArr[i].isSnowman) {
+            canvas_ctx.drawImage(snowmanImg, objectArr[i].x, objectArr[i].y, snowmanImg.width, snowmanImg.height);
+        }
+        else if (objectArr[i].isRock) {
+            canvas_ctx.drawImage(rockImg, objectArr[i].x, objectArr[i].y, rockImg.width, rockImg.height);
+        }
+        else if (objectArr[i].isLog) {
+            canvas_ctx.drawImage(logImg, objectArr[i].x, objectArr[i].y, logImg.width, logImg.height);
+        }
+        i--;
+    } while (i >= 0);
 }
 
 // Invoked in mainAnimation
 function generateManyObjects() {
 
-    // Bigger i = more objects, good for smaller animation sizes
+    // Bigger i = more objects; good for smaller animation sizes and/or larger screens
     let i;
-
+    // Check for screen size
     if (canvas.width >= 800) {
         i = 18;
     } else if (canvas.width < 800) {
         i = 8;
     }
-
     do {
         generateRandomObject();
         i--;
-
     } while (i > 0);
-
     if (i === 0) {
+        // X and Y coordinates can now be set off canvas after removed from objectArr
         animationObject.haveObjectsReset = true;
     }
-
 }
 
 ////////////////////////
