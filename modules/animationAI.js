@@ -88,8 +88,6 @@ function riderAI(i) {
         // Reset traverseNum
         objectArr[i].traverseNum = 0;
     }
-    // Update velocity coordinates
-    moveObject(i);
 }
 
 // Invoked in animationAI()
@@ -115,6 +113,7 @@ function animationAI() {
         }
         else if (objectArr[i].isRider) {
             riderAI(i);
+            moveObject(i);
         }
         i--;
     } while (i >= 0);
