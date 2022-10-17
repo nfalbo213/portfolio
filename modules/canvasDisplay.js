@@ -26,20 +26,21 @@ const canvasButton = document.getElementById('canvas-welcome-button');
 
 /////////////////////
 // Local Functions
-function findRider() {
-    // riderIndex = index for rider object inside objectArr; assigned when found
+function replaceRider() {
     let riderIndex;
     // Find rider object
     for (let i = objectArr.length - 1; i >= 0; i--) {
         if (objectArr[i].isRider) {
-            // assign riderIndex
+            // Assign riderIndex
             riderIndex = i;
-            // stop loop
+            // Stop loop
             i = 0;
         } 
     }
     // Remove rider object (and all of it's coordinates) from objectArr
     objectArr.splice(riderIndex, 1);
+    // Replace Rider object
+    riderDisplay();
 }
 
 ////////////////////////
@@ -63,11 +64,8 @@ function drawCanvas() {
 function canvasResize() {
     // Resize canvas
     initialCanvasSize();
-    // Reset canvas object parameters 
-    // 1) Find rider object in objectArr
-    findRider();
-    // 2) Repopulate objectArr w/ a new rider object at the center of the screen
-    riderDisplay();
+    // Reset rider object
+    replaceRider(); 
 }
 
 ////////////////
