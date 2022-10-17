@@ -102,29 +102,52 @@ function generateManyObjects() {
     }
 }
 
+// Invoked in generateRandomObject()
+function objApprover(arr) {
+    // Compare object in arr to objects in objectArr
+    for (let i = objectArr.length - 1; i >= 0; i--) {
+        if (objectArr[i] === arr[0]) {
+            // if exact match
+            arr.splice(0, 1);
+            generateRandomObject();
+            i = -1;
+            return;
+        }
+        if ((objectArr[i].x + treeImg.width / 2) >= arr[0].x - treeImg.width && (objectArr[i].x + treeImg.width / 2) <= arr[0].x + treeImg.width && objectArr[i].y >= arr[0].y - treeImg.height && objectArr[i].y <= +treeImg.height) {
+            // if similar match
+            arr.splice(0, 1);
+            generateRandomObject();
+            i = -1;
+            return;
+        }
+    }
+    // Push object to objectArr if passed comparison
+    if (arr.length > 0) {
+        objectArr.push(arr[0]);
+    } else {
+        return;
+    }
+}
+
 ////////////////////////
 // Exported Functions
 function mainAnimation() {
-
     // Set set up canvas
     initialCanvasSize();
     // Populate objectArr with rider and objects
     generateRider();
     generateManyObjects();
-
     // Run animation loop
     const timer = setInterval(function () {
-
         drawCanvas();
         drawObjects();
         animationAI();
-
     }, 20);
-
 }
 
 // Invoked in mainAnimation and canvasDisplay.js (as riderDisplay())
 function generateRider() {
+    // Establish properites
     let x;
     let y;
     let lowerY;
@@ -151,12 +174,10 @@ function generateRider() {
     isRock = false;
     // Push to objectArr
     objectArr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown, traverseNum: traverseNum });
-
 }
 
 // Invoked in generateRandomObject
 function randomCoordinateX(max) {
-
     // Generate cooridinates
     if (!animationObject.haveObjectsReset) {
         // Generate initial coordinates
@@ -168,12 +189,10 @@ function randomCoordinateX(max) {
         // Objects should start with a negative X coordinate to start off not visible to screen (but not too far off; divide by 2 and account for widest image width of 195)
         return Math.floor(Math.random() * -max) / 2 - 196;
     }
-
 }
 
 // Invoked in generateRandomObject
 function randomCoordinateY(max) {
-
     // figure out if cooridnates will be over or under canvas.height
     // **TODO** Can probably refactor this section
     let overUnder;
@@ -185,7 +204,6 @@ function randomCoordinateY(max) {
         // 50% chance of over canvas.height 
         overUnder = 1.3;
     }
-
     // Generate cooridinates
     if (!animationObject.haveObjectsReset) {
         // Generate initial coordinates
@@ -195,12 +213,11 @@ function randomCoordinateY(max) {
         // Generate coordinates after objects have been cleared from objectArr at least once
         return Math.floor(Math.random() * (max * overUnder));
     }
-
 }
 
 // Invoked in generateManyObjects and animationAI.js
 function generateRandomObject() {
-
+    // Object parameters 
     let x;
     let y;
     let lowerY;
@@ -212,14 +229,11 @@ function generateRandomObject() {
     let isLog;
     let isRock;
     let movingDown;
-
     // Generate x and y coordinates
     x = randomCoordinateX(canvas.width);
     y = randomCoordinateY(canvas.height);
-
     // Define object type
     let num = Math.floor(Math.random() * 100);
-
     // 85% chance of tree
     if (num <= 84) {
         isTree = true;
@@ -229,7 +243,6 @@ function generateRandomObject() {
         isRock = false;
         movingDown = false;
     }
-
     // 5% chance of snowman
     else if (num >= 85 && num <= 89) {
         isTree = false;
@@ -239,7 +252,6 @@ function generateRandomObject() {
         isRock = false;
         movingDown = false;
     }
-
     // 5% chance of log
     else if (num >= 90 && num <= 94) {
         isTree = false;
@@ -249,7 +261,6 @@ function generateRandomObject() {
         isRock = false;
         movingDown = false;
     }
-
     // 5% chance of rock
     else if (num >= 95 && num <= 99) {
         isTree = false;
@@ -259,7 +270,6 @@ function generateRandomObject() {
         isRock = true;
         movingDown = false;
     }
-
     // Generate x and y velocities
     if (isTree || isSnowman || isLog || isRock) {
         velocityX = 7;
@@ -272,31 +282,7 @@ function generateRandomObject() {
         x = canvas.width / 2;
         y = canvas.height / 2;
     }*/
-    // Ensure objects aren't stacked on top of each other/created on the same/close to the same spot
-    if (objectArr.length > 0) {
-
-        let arr = [];
-        arr.push({ x: x, y: y, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown });
-
-        for (let i = objectArr.length - 1; i >= 0; i--) {
-
-            if (objectArr[i] === arr[0]) {
-                arr.splice(0, 1);
-                generateRandomObject();
-                i = -1;
-                return;
-            }
-            if ((objectArr[i].x + treeImg.width / 2) >= arr[0].x - treeImg.width && (objectArr[i].x + treeImg.width / 2) <= arr[0].x + treeImg.width && objectArr[i].y >= arr[0].y - treeImg.height && objectArr[i].y <= +treeImg.height) {
-                arr.splice(0, 1);
-                generateRandomObject();
-                i = -1;
-                return;
-            }
-
-        }
-
-    }
-
+    // Assign lowerY coordinates
     if (isTree) {
         lowerY = y + treeImg.height;
     }
@@ -309,9 +295,14 @@ function generateRandomObject() {
     else if (isRock) {
         lowerY = y + rockImg.height;
     }
-
-    objectArr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown });
-
+    // Ensure objects aren't stacked too close to each other
+    if (objectArr.length > 0) {
+        // Create array of current object
+        let arr = [];
+        arr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown });
+        // Compare arr w/ objects in objectArr and push object to objectArr if approved
+        objApprover(arr);
+    }
 }
 
 /////////////////////
