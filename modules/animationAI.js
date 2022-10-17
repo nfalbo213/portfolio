@@ -21,7 +21,7 @@ import { riderDownImg } from "./animation-images.js";
 
 ///////////////////////
 // Local Functions
-// *** riderAvoidObjects still needs work; isn't occuring
+// *** riderAvoidObjects still needs work; isn't occuring (was invoking in riderAI before moveObject velocity parameters)
 function riderAvoidObjects() {
     //let riderArr = [];
     let riderObjIndex;
@@ -88,26 +88,26 @@ function riderAvoidObjects() {
 
 // Invoked in riderAI()
 function firstTraverse(i) {
-    // Determine whether rider is going up or down (first if is down)
+    // Determine whether rider is going up or down (initial state is down)
     if (objectArr[i].y === ((canvas.height / 2) - (riderDownImg.height / 2))) {
+        objectArr[i].movingDown = true;
         // Reset velocity
         objectArr[i].velocityY = 0;
         // Assign new velocity
         objectArr[i].velocityY += 1;
         objectArr[i].velocityX = 0;
         objectArr[i].velocityX -= 1;
-        objectArr[i].movingDown = true;
         // Add to traverse
         objectArr[i].traverseNum += 1;
         // Assign lowerY of image
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.1;
     }
     else if (objectArr[i].y === ((canvas.height / 2) + 17)) {
+        objectArr[i].movingDown = false;
         objectArr[i].velocityY = 0;
         objectArr[i].velocityY -= 1;
         objectArr[i].velocityX = 0;
         objectArr[i].velocityX += .5;
-        objectArr[i].movingDown = false;
         objectArr[i].traverseNum += 1;
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.05;
     }
@@ -116,23 +116,31 @@ function firstTraverse(i) {
 // Invoked in riderAI()
 function secondTraverse(i) {
     if (objectArr[i].y <= ((canvas.height / 2) - (riderDownImg.height / 2))) {
+        objectArr[i].movingDown = true;
         objectArr[i].velocityY = 0;
         objectArr[i].velocityY += 1;
         objectArr[i].velocityX = 0;
         objectArr[i].velocityX -= .5;
-        objectArr[i].movingDown = true;
         objectArr[i].traverseNum += 1;
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.2;
     }
     else if (objectArr[i].y >= ((canvas.height / 2) + 17)) {
+        objectArr[i].movingDown = false;
         objectArr[i].velocityY = 0;
         objectArr[i].velocityY -= 1;
         objectArr[i].velocityX = 0;
         objectArr[i].velocityX += 1;
-        objectArr[i].movingDown = false;
         objectArr[i].traverseNum += 1;
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.05;
     }
+}
+
+// Invoked in riderAI() and animationAI()
+function moveObject(i) {
+    // Add velocity to object's coordinates to create appearence of movement
+    objectArr[i].x += objectArr[i].velocityX;
+    objectArr[i].y += objectArr[i].velocityY;
+    objectArr[i].lowerY += objectArr[i].velocityY;
 }
 
 // Invoked in animationAI()
@@ -149,17 +157,18 @@ function riderAI(i) {
         // Reset traverseNum
         objectArr[i].traverseNum = 0;
     }
-    /* //AvoidObjects function doesn't work yet - no need to invoke
-    riderAvoidObjects();
-    */
-    // Add velocity to rider object's coordinates to create apperance of movement
-    objectArr[i].x += objectArr[i].velocityX;
-    objectArr[i].y += objectArr[i].velocityY;
-    objectArr[i].lowerY += objectArr[i].velocityY;
-    // Not currently nessecary if isRider (save for possible game or if make animation w/ rider moving)
-    if (objectArr[i].x > canvas.width) {
+    // Update velocity coordinates
+    moveObject(i);
+}
+
+// Invoked in animationAI()
+function removeObject(i) {
+    // Remove object from objectArr if it's either past the screen width, or it's lowerY is off the top of the screen (0; canvas Y is inversed)
+    if (objectArr[i].x >= canvas.width || objectArr[i].lowerY < 0 && !objectArr[i].isRider) {
         objectArr.splice(i, 1);
         generateRandomObject();
+    } else {
+        return;
     }
 }
 
@@ -170,23 +179,14 @@ function animationAI() {
     // Loop through objectArr and update coordinates
     do {
         if (objectArr[i].isTree || objectArr[i].isSnowman || objectArr[i].isRock || objectArr[i].isLog) {
-            // Add velocity to object's coordinates to create appearence of movement
-            objectArr[i].x += objectArr[i].velocityX;
-            objectArr[i].y += objectArr[i].velocityY;
-            objectArr[i].lowerY += objectArr[i].velocityY;
-            // Remove object from objectArr if it's either past the screen width, or it's lowerY is off the top of the screen (0; canvas Y is inversed)
-            if (objectArr[i].x >= canvas.width || objectArr[i].lowerY < 0) {
-                objectArr.splice(i, 1);
-                generateRandomObject();
-            }
+            moveObject(i);
+            removeObject(i);
         }
         else if (objectArr[i].isRider) {
             riderAI(i);
         }
         i--;
-
     } while (i >= 0);
-
 }
 
 //////////////////

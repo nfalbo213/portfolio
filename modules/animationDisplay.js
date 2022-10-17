@@ -23,8 +23,7 @@ import { animationAI } from "./animationAI.js";
 // Global Variables
 let objectArr = [];
 // Structure of each object in objectArr = {x: number, y: number, velocity: number, isRider: boolean, isTree: boolean, isSnowman: boolean, isLog: boolean, isRock: boolean, movingDown: boolean traverseNum: number}
-// **TODO** Can probably get rid of isWindowResizing
-let animationObject = {isWindowResizing: false, haveObjectsReset: false};
+let animationObject = {haveObjectsReset: false};
 
 /////////////////////
 // Local Functions
