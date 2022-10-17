@@ -21,117 +21,45 @@ import { riderDownImg } from "./animation-images.js";
 
 ///////////////////////
 // Local Functions
-// *** riderAvoidObjects still needs work; isn't occuring (was invoking in riderAI before moveObject velocity parameters)
-function riderAvoidObjects() {
-    //let riderArr = [];
-    let riderObjIndex;
-    for (let i = objectArr.length - 1; i >= 0; i--) {
-        if (objectArr[i].isRider) {
-            //riderArr.push(objectArr[i]);
-            riderObjIndex = i;
-            i = -1;
-            return;
-        } else {
-            return;
-        }
-    }
-    for (let n = objectArr.length - 1; n >= 0; n--) {
-        if (objectArr[i].movingDown) {
-            if (objectArr[i].isRider) {
-                return;
-            }
-            else if (objectArr[i].isTree) {
-                if (objectArr[i].x + (treeImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY - (treeImg.height / 2) === objectArr[riderObjIndex].y + riderDownImg.height) {
-                    objectArr[riderObjIndex].movingDown = false;
-                    objectArr[riderObjIndex].velocityY -= 4;
-                    console.log('happened');
-                }
-            }
-            else if (objectArr[i].isSnowman) {
-                if (objectArr[i].x + (snowmanImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY - 10 === objectArr[riderObjIndex].y + riderDownImg.height) {
-                    objectArr[riderObjIndex].movingDown = false;
-                    objectArr[riderObjIndex].velocityY -= 4;
-                }
-            }
-            else if (objectArr[i].isRock) {
-                if (objectArr[i].x + (rockImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY - 10 === objectArr[riderObjIndex].y + riderDownImg.height) {
-                    objectArr[riderObjIndex].movingDown = false;
-                    objectArr[riderObjIndex].velocityY -= 4;
-                }
-            }
-        }
-        else if (!objectArr[i].movingDown) {
-            if (objectArr[i].isRider) {
-                return;
-            }
-            else if (objectArr[i].isTree) {
-                if (objectArr[i].x + (treeImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY + 10 === objectArr[riderObjIndex].y + riderUpImg.height / 1.5) {
-                    objectArr[riderObjIndex].movingDown = true;
-                    objectArr[riderObjIndex].velocityY += 4;
-                }
-            }
-            else if (objectArr[i].isSnowman) {
-                if (objectArr[i].x + (snowmanImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY + 10 === objectArr[riderObjIndex].y + riderUpImg.height / 1.5) {
-                    objectArr[riderObjIndex].movingDown = true;
-                    objectArr[riderObjIndex].velocityY += 4;
-                }
-            }
-            else if (objectArr[i].isRock) {
-                if (objectArr[i].x + (rockImg.width) >= objectArr[riderObjIndex].x && objectArr[i].x <= objectArr[riderObjIndex].x && objectArr[i].lowerY + 10 === objectArr[riderObjIndex].y + riderUpImg.height / 1.5) {
-                    objectArr[riderObjIndex].movingDown = true;
-                    objectArr[riderObjIndex].velocityY += 4;
-                }
-            }
-        }
-    }
-}
 
 // Invoked in riderAI()
-function firstTraverse(i) {
-    // Determine whether rider is going up or down (initial state is down)
+function riderTraverse(i, isFirstTrvs) {
+    // Determine whether rider is going up or down (initial state is down), and if they need to 'turn' back up/down
     if (objectArr[i].y === ((canvas.height / 2) - (riderDownImg.height / 2))) {
         objectArr[i].movingDown = true;
         // Reset velocity
         objectArr[i].velocityY = 0;
         // Assign new velocity
         objectArr[i].velocityY += 1;
-        objectArr[i].velocityX = 0;
-        objectArr[i].velocityX -= 1;
         // Add to traverse
         objectArr[i].traverseNum += 1;
         // Assign lowerY of image
-        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.1;
-    }
-    else if (objectArr[i].y === ((canvas.height / 2) + 17)) {
-        objectArr[i].movingDown = false;
-        objectArr[i].velocityY = 0;
-        objectArr[i].velocityY -= 1;
-        objectArr[i].velocityX = 0;
-        objectArr[i].velocityX += .5;
-        objectArr[i].traverseNum += 1;
-        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.05;
-    }
-}
-
-// Invoked in riderAI()
-function secondTraverse(i) {
-    if (objectArr[i].y <= ((canvas.height / 2) - (riderDownImg.height / 2))) {
-        objectArr[i].movingDown = true;
-        objectArr[i].velocityY = 0;
-        objectArr[i].velocityY += 1;
-        objectArr[i].velocityX = 0;
-        objectArr[i].velocityX -= .5;
-        objectArr[i].traverseNum += 1;
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.2;
     }
-    else if (objectArr[i].y >= ((canvas.height / 2) + 17)) {
+    if (objectArr[i].y === ((canvas.height / 2) + 17)) {
         objectArr[i].movingDown = false;
         objectArr[i].velocityY = 0;
         objectArr[i].velocityY -= 1;
-        objectArr[i].velocityX = 0;
-        objectArr[i].velocityX += 1;
         objectArr[i].traverseNum += 1;
         objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.05;
+    }
+    // Determine which direction rider is traveling across screen (R to L or L to R), and adjust velocityX accordingly
+    if (isFirstTrvs && objectArr[i].movingDown) {
+        // Reset and assign new velocity
+        objectArr[i].velocityX = 0;
+        objectArr[i].velocityX -= 1;
+    }
+    if (isFirstTrvs && !objectArr[i].movingDown) {
+        objectArr[i].velocityX = 0;
+        objectArr[i].velocityX += .5;
+    }
+    if (!isFirstTrvs && objectArr[i].movingDown) {
+        objectArr[i].velocityX = 0;
+        objectArr[i].velocityX -= .5;
+    }
+    if (!isFirstTrvs && !objectArr[i].movingDown) {
+        objectArr[i].velocityX = 0;
+        objectArr[i].velocityX += 1;
     }
 }
 
@@ -145,13 +73,18 @@ function moveObject(i) {
 
 // Invoked in animationAI()
 function riderAI(i) {
+
+    let isFirstTrvs;
+
     if (objectArr[i].traverseNum <= 9) {
         // Rider object making 'traverse' from RIGHT to LEFT across screen (this is also the initial condition)
-        firstTraverse(i);
+        isFirstTrvs = true;
+        riderTraverse(i, isFirstTrvs);
     }
     if (objectArr[i].traverseNum >= 10 && objectArr[i].traverseNum <= 19) {
         // Rider object making 'traverse' from LEFT to RIGHT across screen 
-        secondTraverse(i);
+        isFirstTrvs = false;
+        riderTraverse(i, isFirstTrvs);
     }
     if (objectArr[i].traverseNum === 19) {
         // Reset traverseNum
