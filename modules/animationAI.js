@@ -73,9 +73,7 @@ function moveObject(i) {
 
 // Invoked in animationAI()
 function riderAI(i) {
-
     let isFirstTrvs;
-
     if (objectArr[i].traverseNum <= 9) {
         // Rider object making 'traverse' from RIGHT to LEFT across screen (this is also the initial condition)
         isFirstTrvs = true;
