@@ -123,9 +123,8 @@ function mainAnimation() {
 
 }
 
-// Invoked in mainAnimation and canvasDisplay.js
+// Invoked in mainAnimation and canvasDisplay.js (as riderDisplay())
 function generateRider() {
-
     let x;
     let y;
     let lowerY;
@@ -138,12 +137,10 @@ function generateRider() {
     let isRock;
     let movingDown;
     let traverseNum = 0;
-
+    // Assign coordinates and properties
     x = canvas.width / 2 + (riderDownImg.width);
     y = canvas.height / 2 - (riderDownImg.height / 2);
-    //x = canvas.width / 4;
-    //y = canvas.height / 2 - 60;
-    // ^ above two in conjunction w/ canvas_scale(2,2)
+    lowerY = y + riderDownImg.height;
     velocityX = -1;
     velocityY = 1;
     movingDown = true;
@@ -152,8 +149,7 @@ function generateRider() {
     isRider = true;
     isLog = false;
     isRock = false;
-    lowerY = y + riderDownImg.height;
-
+    // Push to objectArr
     objectArr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown, traverseNum: traverseNum });
 
 }

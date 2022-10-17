@@ -66,8 +66,7 @@ function canvasResize() {
     // Reset canvas object parameters 
     // 1) Find rider object in objectArr
     findRider();
-    // 2) Repopulate objectArr w/ center screen rider object
-    //generateRider();
+    // 2) Repopulate objectArr w/ a new rider object at the center of the screen
     riderDisplay();
 }
 
