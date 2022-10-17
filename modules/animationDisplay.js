@@ -103,7 +103,7 @@ function generateManyObjects() {
 
 // Invoked in generateRandomObject()
 function objApprover(arr) {
-    // Compare object in arr to objects in objectArr
+    // Compare object in arr to objects in objectArr and ensure they aren't generated too close to each other
     for (let i = objectArr.length - 1; i >= 0; i--) {
         if (objectArr[i] === arr[0]) {
             // if exact match
@@ -120,11 +120,9 @@ function objApprover(arr) {
             return;
         }
     }
-    // Push object to objectArr if passed comparison
+    // Push object to objectArr if 'passed' comparison
     if (arr.length > 0) {
         objectArr.push(arr[0]);
-    } else {
-        return;
     }
 }
 
@@ -274,13 +272,6 @@ function generateRandomObject() {
         velocityX = 7;
         velocityY = -2;
     }
-    // Redundent unless want to add extra riders later on
-    /*else if (isRider) {
-        velocityX = 0;
-        velocityY = 0;
-        x = canvas.width / 2;
-        y = canvas.height / 2;
-    }*/
     // Assign lowerY coordinates
     if (isTree) {
         lowerY = y + treeImg.height;
@@ -299,7 +290,7 @@ function generateRandomObject() {
         // Create array of current object
         let arr = [];
         arr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown });
-        // Compare arr w/ objects in objectArr and push object to objectArr if approved
+        // Send object out for 'approval'
         objApprover(arr);
     }
 }

@@ -34,18 +34,18 @@ function riderTraverse(i, isFirstTrvs) {
         // Add to traverse
         objectArr[i].traverseNum += 1;
         // Assign lowerY of image
-        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.2;
+        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.2 /*/ 1.2*/;
     }
     if (objectArr[i].y === ((canvas.height / 2) + 17)) {
         objectArr[i].movingDown = false;
         objectArr[i].velocityY = 0;
         objectArr[i].velocityY -= 1;
         objectArr[i].traverseNum += 1;
-        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.05;
+        objectArr[i].lowerY = objectArr[i].y + riderDownImg.height / 1.1 /*/ 1.05*/;
     }
     // Determine which direction rider is traveling across screen (R to L or L to R), and adjust velocityX accordingly
     if (isFirstTrvs && objectArr[i].movingDown) {
-        // Reset and assign new velocity
+        // Reset and assign new x velocity
         objectArr[i].velocityX = 0;
         objectArr[i].velocityX -= 1;
     }
@@ -63,7 +63,7 @@ function riderTraverse(i, isFirstTrvs) {
     }
 }
 
-// Invoked in riderAI() and animationAI()
+// Invoked in animationAI()
 function moveObject(i) {
     // Add velocity to object's coordinates to create appearence of movement
     objectArr[i].x += objectArr[i].velocityX;
