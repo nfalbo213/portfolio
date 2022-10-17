@@ -137,12 +137,12 @@ function secondTraverse(i) {
 
 // Invoked in animationAI()
 function riderAI(i) {
-    // Rider object making 'traverse' from RIGHT to LEFT across screen (this is also the initial condition)
     if (objectArr[i].traverseNum <= 9) {
+        // Rider object making 'traverse' from RIGHT to LEFT across screen (this is also the initial condition)
         firstTraverse(i);
     }
-    // Rider object making 'traverse' from LEFT to RIGHT across screen 
     if (objectArr[i].traverseNum >= 10 && objectArr[i].traverseNum <= 19) {
+        // Rider object making 'traverse' from LEFT to RIGHT across screen 
         secondTraverse(i);
     }
     if (objectArr[i].traverseNum === 19) {
