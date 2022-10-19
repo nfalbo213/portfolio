@@ -927,10 +927,19 @@ header {
                     background-repeat: no-repeat;
                     background-position: center;
                     cursor: pointer;
+                    opacity: .6;
                     transition: .15s;
+                    -webkit-transform: scale(.8);
+                    transform: scale(.8);
+                    -webkit-transition: -webkit-transform .15s ease-in-out;
+                    transition: -webkit-transform .15s ease-in-out;
+                    transition: transform .15s ease-in-out;
+                    transition: transform .15s ease-in-out, -webkit-transform .15s ease-in-out;
                 }
             .github-link:hover {
-                    opacity: .55;
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
                 }
 
 /* ^^ End of Main Body Wrapper ^^ */
