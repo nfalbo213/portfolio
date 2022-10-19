@@ -30,6 +30,34 @@ const navFour = document.getElementById('nav4');
 let navObject = {hamburgerClicked: false, navButtonClicked: false};
 
 /////////////////////////
+// Local Functions
+const checkIfNavButton = () => {
+    if (!navObject.navButtonClicked) {
+        timer(delayedAnimation, 50);
+        $("#navbar").animate({
+            height: "70px",
+            opacity: ".95"
+        }, 200);
+    } else {
+        timer(delayedAnimation, 10);
+        $("#navbar").animate({
+            height: "70px",
+            opacity: ".95"
+        }, 150);
+        navObject.navButtonClicked = false;
+    }
+}
+
+const delayedAnimation = () => {
+    // Close navbar extension
+    mobileNavList.style.display = '';
+}
+
+const timer = () => {
+    setTimeout(delayedAnimation, 200);
+}
+
+/////////////////////////
 // Exported Functions
 // Invoked in main.js
 function burgerSpin() {
@@ -46,7 +74,7 @@ function burgerSpin() {
         // Drop down navbar extension
         mobileNavList.style.display = 'flex';
         $("#navbar").animate({
-            height: "50%",
+            height: "60%",
             opacity: ".98"
         }, 200);
         // Set burger as clicked
@@ -62,20 +90,9 @@ function burgerSpin() {
         bottomSpan.style.transform = 'rotate(-360deg)';
         bottomSpan.style.position = '';
         // Close navbar extension
-        mobileNavList.style.display = '';
+        //mobileNavList.style.display = '';
         // Check to see if navbutton clicked, then animate navbar accordingly
-        if (!navObject.navButtonClicked) {
-            $("#navbar").animate({
-                height: "70px",
-                opacity: ".95"
-            }, 200);
-        } else {
-            $("#navbar").animate({
-                height: "70px",
-                opacity: ".95"
-            }, 100);
-            navObject.navButtonClicked = false;
-        }
+        checkIfNavButton();
         // Set burger as 'not-clicked'
         navObject.hamburgerClicked = false;
     }
