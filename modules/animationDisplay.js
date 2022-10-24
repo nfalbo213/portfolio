@@ -131,7 +131,7 @@ function objApprover(arr) {
 function mainAnimation() {
     // Set set up canvas
     initialCanvasSize();
-    // Populate objectArr with rider and objects
+    // Populate objectArr with rider and objects (invoke generateRider first for objApprover to function correctly in generateManyObjects)
     generateRider();
     generateManyObjects();
     // Run animation loop
