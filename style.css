@@ -229,6 +229,16 @@ canvas {
     font-size: medium;
     color: white;
     opacity: .9;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform .15s ease-in-out;
+    transition: -webkit-transform .15s ease-in-out;
+    transition: transform .15s ease-in-out;
+    transition: transform .15s ease-in-out, -webkit-transform .15s ease-in-out;
+}
+.canvas-button:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 600px) {
@@ -253,8 +263,6 @@ canvas {
 @media screen and (max-width: 500px) {
     .canvas-img-wrapper {
         margin-left: 65%;
-        /*height: 150px;
-        width: 75px;*/
         background-position: center;
         background-size: 75%;
     }                 
@@ -754,10 +762,18 @@ canvas {
     -ms-transition: .15s;
     -o-transition: .15s;
     transition: .15s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform .15s ease-in-out;
+    transition: -webkit-transform .15s ease-in-out;
+    transition: transform .15s ease-in-out;
+    transition: transform .15s ease-in-out, -webkit-transform .15s ease-in-out;
 }
 .project-button:hover, .email-button:hover {
     background-color: black;
     color: white;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
      
 /* Contact Section */        
@@ -876,8 +892,8 @@ label {
     cursor: pointer;
     opacity: .6;
     transition: .15s;
-    -webkit-transform: scale(.9);
-    transform: scale(.9);
+    -webkit-transform: scale(1);
+    transform: scale(1);
     -webkit-transition: -webkit-transform .15s ease-in-out;
     transition: -webkit-transform .15s ease-in-out;
     transition: transform .15s ease-in-out;
@@ -885,16 +901,10 @@ label {
 }
 .github-link:hover {
     opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
-           
-@media screen and (max-width: 800px) {
-    .github-link {
-        -webkit-transform: scale(.95);
-        transform: scale(.95);
-    }
-}
+
 /* ^^ End of Main Body Wrapper ^^ */
 
 /* Footer */
