@@ -48,8 +48,8 @@ const checkIfNavButton = () => {
             height: "70px",
             opacity: ".95"
         }, 100);
-        navObject.navButtonClicked = false;
         setTimeout(delayedAnimation, 50);
+        navObject.navButtonClicked = false;
     }
 }
 
