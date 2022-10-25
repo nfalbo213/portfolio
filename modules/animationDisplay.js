@@ -107,14 +107,14 @@ function objApprover(arr) {
     for (let i = objectArr.length - 1; i >= 0; i--) {
         if (objectArr[i] === arr[0]) {
             // if exact match
-            arr.splice(0, 1);
+            arr.splice(0);
             generateRandomObject();
             i = -1;
             return;
         }
         if ((objectArr[i].x + treeImg.width / 2) >= arr[0].x - treeImg.width && (objectArr[i].x + treeImg.width / 2) <= arr[0].x + treeImg.width && objectArr[i].y >= arr[0].y - treeImg.height && objectArr[i].y <= +treeImg.height) {
             // if similar match
-            arr.splice(0, 1);
+            arr.splice(0);
             generateRandomObject();
             i = -1;
             return;
@@ -123,6 +123,8 @@ function objApprover(arr) {
     // Push object to objectArr if 'passed' comparison
     if (arr.length > 0) {
         objectArr.push(arr[0]);
+        arr.splice(0);
+        return;
     }
 }
 
