@@ -144,7 +144,7 @@ function mainAnimation() {
     }, 20);
 }
 
-// Invoked in mainAnimation and canvasDisplay.js (as riderDisplay())
+// Invoked in mainAnimation, removeObjects and canvasDisplay.js (as riderDisplay())
 function generateRider() {
     // Establish properites
     let x;
