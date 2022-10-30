@@ -15,7 +15,7 @@ Copyright 2022 Nick Falbo
 
 /////////////////
 // Imports
-import { objectArr, generateRandomObject } from "./animationDisplay.js";
+import { objectArr, generateRandomObject, generateRider } from "./animationDisplay.js";
 import { canvas } from "./canvasDisplay.js";
 import { riderDownImg } from "./animation-images.js";
 
@@ -96,6 +96,11 @@ function removeObject(i) {
     if (objectArr[i].x >= canvas.width || objectArr[i].lowerY < 0 && !objectArr[i].isRider) {
         objectArr.splice(i, 1);
         generateRandomObject();
+    }
+    // Remove rider object from objectArr if it's under the the screen width
+    if (objectArr[i].x + riderDownImg.width <= 0 && objectArr[i].isRider) {
+        objectArr.splice(i, 1);
+        generateRider();
     } else {
         return;
     }
