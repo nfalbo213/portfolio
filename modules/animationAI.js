@@ -118,6 +118,7 @@ function animationAI() {
         }
         else if (objectArr[i].isRider) {
             riderAI(i);
+            removeObject(i);
             moveObject(i);
         }
         i--;
