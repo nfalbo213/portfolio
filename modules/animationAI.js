@@ -112,15 +112,11 @@ function animationAI() {
     let i = objectArr.length - 1;
     // Loop through objectArr and update coordinates
     do {
-        if (objectArr[i].isTree || objectArr[i].isSnowman || objectArr[i].isRock || objectArr[i].isLog) {
-            moveObject(i);
-            removeObject(i);
-        }
-        else if (objectArr[i].isRider) {
+        if (objectArr[i].isRider) {
             riderAI(i);
-            removeObject(i);
-            moveObject(i);
         }
+        moveObject(i);
+        removeObject(i);
         i--;
     } while (i >= 0);
 }
