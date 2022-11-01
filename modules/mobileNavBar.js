@@ -31,9 +31,14 @@ let navObject = {hamburgerClicked: false, navButtonClicked: false};
 
 /////////////////////////
 // Local Functions
-const delayedAnimation = () => {
-    // Close navbar extension
-    mobileNavList.style.display = '';
+const delayedAnimation = async () => {
+    if (navObject.hamburgerClicked) {
+        // Open navbar extension
+        mobileNavList.style.display = 'flex';
+    } else {
+        // Close navbar extension
+        mobileNavList.style.display = '';
+    }
 }
 
 const checkIfNavButton = () => {
@@ -68,11 +73,12 @@ function burgerSpin() {
         bottomSpan.style.transform = 'rotate(315deg)';
         bottomSpan.style.position = 'absolute';
         // Drop down navbar extension
-        mobileNavList.style.display = 'flex';
+        //mobileNavList.style.display = 'flex';
         $("#navbar").animate({
             height: "60%",
             opacity: ".98"
         }, 200);
+        setTimeout(delayedAnimation, 50);
         // Set burger as clicked
         navObject.hamburgerClicked = true;
     } else {
