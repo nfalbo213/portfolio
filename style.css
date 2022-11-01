@@ -157,9 +157,6 @@ nav a:hover {
         font-weight: bolder;
         padding-right: 0px;
         }
-    nav a:hover {
-        color: black;
-    }
 }
 
 /* Adjust hamburger for smart phone */
