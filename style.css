@@ -53,6 +53,9 @@ header {
     width: 100%;
     overflow: hidden;
 }
+.mobile-nav-list {
+    display: none;
+}
 .hamburger {
     display: none;
     flex-direction: column;
@@ -88,16 +91,17 @@ header {
 }
 nav li {
     display: inline-block;
-}
-.mobile-nav-list {
-    display: none;
-}
-.border-li {
-    border-right: 1px solid black;
-    padding-right: 3px;
+    padding-left: 5%;
 }
 .nav-link {
+    transition: .15s;
+    border-right: 1px solid transparent;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+.nav-link:hover {
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
 }
 nav a {
     font-family: 'Roboto', sans-serif;
@@ -106,6 +110,7 @@ nav a {
     transition: .15s;
     font-weight: bold;
     font-size: 110%;
+    padding-right: 10px;
 }
 nav a:hover {
     color: black;
@@ -132,16 +137,25 @@ nav a:hover {
         margin-inline-end: 0px;
         padding-inline-start: 0;
     }
-    .border-li {
+    .nav-link {
         border-right: none;
-        padding-right: 0;
+        border-bottom: none;
+        padding-right: 0%;
+    }
+    .nav-link:hover {
+        border-bottom: none;
+        border-right: none;
     }
     .hamburger {
         display: flex;
     }
+    nav li {
+        padding-left: 0%;
+    }
     nav a {
         color: white;
         font-weight: bolder;
+        padding-right: 0px;
         }
     nav a:hover {
         color: black;
