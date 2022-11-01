@@ -31,7 +31,7 @@ let navObject = {hamburgerClicked: false, navButtonClicked: false};
 
 /////////////////////////
 // Local Functions
-const delayedAnimation = async () => {
+const delayedAnimation = () => {
     if (navObject.hamburgerClicked) {
         // Open navbar extension
         mobileNavList.style.display = 'flex';
