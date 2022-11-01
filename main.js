@@ -19,9 +19,24 @@ import { canvasButton, canvasResize } from "./modules/canvasDisplay.js";
 import { mainAnimation } from "./modules/animationDisplay.js";
 import { hamburger, navZero, navOne, navTwo, navThree, navFour, navObject, burgerSpin } from "./modules/mobileNavBar.js";
 import { heightSet } from "./modules/imgScroll.js";
+import { form, handleSubmit } from "./modules/contactForm.js";
 
 //////////////////////
 // Event Listeners
+
+// WINDOW EVENTS ///////////////////////////
+
+// Set height for profile picture wrapper div
+window.addEventListener ('load', (event) => {
+    event.preventDefault();
+    heightSet();
+});
+// Set height for profile picture wrapper div AND reset the canvas size
+window.addEventListener ('resize', (event) => {
+    event.preventDefault();
+    heightSet();
+    canvasResize();
+});
 
 // MOBILE NAVBAR /////////////////////////
 
@@ -77,19 +92,9 @@ canvasButton.onpointerleave = (event) => {
     event.preventDefault();
 };
 
-// WINDOW EVENTS ///////////////////////////
+// CONTACT FORM ///////////////////////////
 
-// Set height for profile picture wrapper div
-window.addEventListener ('load', (event) => {
-    event.preventDefault();
-    heightSet();
-});
-// Set height for profile picture wrapper div AND reset the canvas size
-window.addEventListener ('resize', (event) => {
-    event.preventDefault();
-    heightSet();
-    canvasResize();
-});
+form.addEventListener('submit', handleSubmit);
 
 ///////////////////
 // Invocations
