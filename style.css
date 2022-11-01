@@ -851,11 +851,15 @@ input {
 }
 textarea {
     height: 150px;
+    max-width: 75%;
+    min-width: 75%;
 }
 
 @media screen and (max-width: 800px) {
     input, textarea {
         width: 100%;
+        max-width: 100%;
+        min-width: 100%;
     }
 }
 
