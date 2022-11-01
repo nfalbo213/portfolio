@@ -13,7 +13,7 @@ const formStatus = document.getElementById("form-status");
 // Async Functions
 async function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
+    const data = new FormData(form);
     try {
         const response = await fetch(targetUrl, {
             method: 'POST',
