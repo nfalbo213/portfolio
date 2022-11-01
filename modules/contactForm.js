@@ -26,10 +26,10 @@ async function handleSubmit(event) {
             formStatus.innerHTML = "🙋🏻‍♂️ Message recieved - I'll get back to you ASAP! 👨🏻‍💻";
             form.reset();
         } else {
-            formStatus.innerHTML = "🤷🏻‍♂️ Oops! There was a problem submitting your form - give it another try 👨🏻‍💻";
+            formStatus.innerHTML = "🤷🏻‍♂️ Oops! There was a problem submitting your message - give it another try... 👨🏻‍💻";
         }
     } catch (error) {
-        formStatus.innerHTML = "🤷🏻‍♂️ Oops! There was a problem submitting your form - give it another try 👨🏻‍💻";
+        formStatus.innerHTML = "🤷🏻‍♂️ Oops! There was a problem submitting your message - give it another try... 👨🏻‍💻";
         console.error(error);
     }
 };
