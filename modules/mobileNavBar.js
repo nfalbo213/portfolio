@@ -72,6 +72,8 @@ function burgerSpin() {
         // Animate bottom of burger
         bottomSpan.style.transform = 'rotate(315deg)';
         bottomSpan.style.position = 'absolute';
+        // Adjust aria-expanded
+        hamburger.ariaExpanded = 'true';
         $("#navbar").animate({
             height: "60%",
             opacity: ".98"
@@ -89,6 +91,8 @@ function burgerSpin() {
         // Animate bottom of burger
         bottomSpan.style.transform = 'rotate(-360deg)';
         bottomSpan.style.position = '';
+        // Adjust aria-expanded
+        hamburger.ariaExpanded = 'false';
         // Check to see if navbutton clicked, then animate navbar accordingly
         checkIfNavButton();
         // Set burger as 'not-clicked'
