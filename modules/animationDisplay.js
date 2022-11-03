@@ -107,16 +107,16 @@ function objApprover(arr) {
     for (let i = objectArr.length - 1; i >= 0; i--) {
         if (objectArr[i] === arr[0]) {
             // if exact match
+            i = -1;
             arr.splice(0);
             generateRandomObject();
-            i = -1;
             return;
         }
         if ((objectArr[i].x + treeImg.width / 2) >= arr[0].x - treeImg.width && (objectArr[i].x + treeImg.width / 2) <= arr[0].x + treeImg.width && objectArr[i].y >= arr[0].y - treeImg.height && objectArr[i].y <= +treeImg.height) {
             // if similar match
+            i = -1;
             arr.splice(0);
             generateRandomObject();
-            i = -1;
             return;
         }
     }
@@ -294,6 +294,7 @@ function generateRandomObject() {
         arr.push({ x: x, y: y, lowerY: lowerY, velocityX: velocityX, velocityY: velocityY, isRider: isRider, isTree: isTree, isSnowman: isSnowman, isLog: isLog, isRock: isRock, movingDown: movingDown });
         // Send object out for 'approval'
         objApprover(arr);
+        arr.splice(0);
     }
 }
 
