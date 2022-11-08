@@ -1,8 +1,6 @@
 /*
-////////////////////////////////////
 Copyright 2022 Nick Falbo
 SPDX-License-Identifier: Apache-2.0
-////////////////////////////////////
 */
 
 // HTML Variables
