@@ -76,7 +76,6 @@ header {
     background-color: rgb(130, 130, 130);
 }
 .x-span, .middle-span {
-    right: 4px;
     width: 40px;
     height: 5px;
     border-radius: 4px;
