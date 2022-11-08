@@ -254,7 +254,7 @@ canvas {
     z-index: 5;
     height: 200px;
     width: 125px;
-    background-image: url("./images/Snowman.png");
+    background-image: url("./images/compressed/c_Snowman.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -337,7 +337,7 @@ canvas {
     z-index: 1;
     height: 200px;
     width: 125px;
-    background-image: url("./images/Logs.png");
+    background-image: url("./images/compressed/c_Logs.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -370,7 +370,7 @@ canvas {
     z-index: 1;
     height: 200px;
     width: 125px;
-    background-image: url("./images/PineTree.png");
+    background-image: url("./images/compressed/c_PineTree.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top;
@@ -403,7 +403,7 @@ canvas {
     z-index: 1;
     height: 225px;
     width: 150px;
-    background-image: url("./images/RiderDown.png");
+    background-image: url("./images/compressed/c_RiderDown.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -463,7 +463,7 @@ canvas {
     margin-left: -1%;
     height: 400px;
     width: 300px;
-    background-image: url("./images/ResizedWideProfilePic.jpeg");
+    background-image: url("./images/compressed/c_ResizedWideProfilePic.jpeg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -686,19 +686,19 @@ canvas {
     background-position: center;
 }
 .project-img-wrapper1 {
-    background-image: url("./images/TankBattleMockUp.png");
+    background-image: url("./images/compressed/c_TankBattleMockUp.png");
 }
 .project-img-wrapper2 {
-    background-image: url("./images/STSMockUp.png");
+    background-image: url("./images/compressed/c_STSMockUp.png");
 }
 .project-img-wrapper3 {
-    background-image: url("./images/PortfolioMockUp.png");
+    background-image: url("./images/compressed/c_PortfolioMockUp.png");
 }
 .project-img-wrapper4 {
-    background-image: url("./images/ComfortShieldMockUp.png");
+    background-image: url("./images/compressed/c_ComfortShieldMockUp.png");
 }             
 .project-img-wrapper5 {
-    background-image: url("./images/ModernApothecaMockUp.png");
+    background-image: url("./images/compressed/c_ModernApothecaMockUp.png");
 }                    
 .project-skills-wrapper {
     width: 75%;
@@ -739,7 +739,7 @@ canvas {
     background-image: url("./images/ElementorPink.png");
 }                        
 .project-jQuery {
-    background-image: url("./images/jQueryLogo.png");                 
+    background-image: url("./images/compressed/c_jQueryLogo.png");                 
 }                    
 .project-button, .email-button { 
     height: 50px;

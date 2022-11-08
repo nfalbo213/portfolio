@@ -34,22 +34,22 @@ riderImg.src = "./images/GoofyRider.png";
 */
 
 riderUpImg = new Image(100, 140);
-riderUpImg.src = "./images/RiderUp2.png";
+riderUpImg.src = "./images/compressed/c_RiderUp2.png";
 
 riderDownImg = new Image(100, 140);
-riderDownImg.src = "./images/RiderDown.png";
+riderDownImg.src = "./images/compressed/c_RiderDown.png";
 
 treeImg = new Image(195, 225);
-treeImg.src = "./images/PineTree.png";
+treeImg.src = "./images/compressed/c_PineTree.png";
 
 snowmanImg = new Image(70, 80);
-snowmanImg.src = "./images/Snowman.png";
+snowmanImg.src = "./images/compressed/c_Snowman.png";
 
 logImg = new Image(50, 65);
-logImg.src = "./images/Logs.png";
+logImg.src = "./images/compressed/c_Logs.png";
 
 rockImg = new Image(110, 130);
-rockImg.src = "./images/Rock.png";
+rockImg.src = "./images/compressed/c_Rock.png";
 
 //////////////
 // Exports
