@@ -762,7 +762,6 @@ canvas {
 }
 .project-button:hover, .email-button:hover {
     background-color: black;
-    color: white;
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
