@@ -96,7 +96,6 @@ form.addEventListener('submit', handleSubmit);
 
 ///////////////////
 // Invocations
-// Change date on footer
-document.getElementById("footer-year").innerHTML = new Date().getFullYear();
+
 // Run main animation
 mainAnimation();
