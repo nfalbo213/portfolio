@@ -603,7 +603,7 @@ canvas {
     margin-block-start: .25em;
     margin-block-end: .25em;
 }
-.first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+.tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
     margin: 0 auto;
     width: 80%;
     height: 33%;
@@ -612,14 +612,14 @@ canvas {
     justify-content: space-between;
 }
 .first-project-wrapper, .third-project-wrapper, .fifth-project-wrapper {
-    flex-direction: row;
-}
-.second-project-wrapper, .fourth-project-wrapper {
     flex-direction: row-reverse;
+}
+.tsa-project-wrapper, .second-project-wrapper, .fourth-project-wrapper {
+    flex-direction: row;
 }
             
 @media screen and (max-width: 680px) {
-    .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+    .tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
@@ -677,10 +677,13 @@ canvas {
     }
 }
 
-.project-img-wrapper1, .project-img-wrapper2, .project-img-wrapper3, .project-img-wrapper4, .project-img-wrapper5 {
+.project-img-wrapper-tsa, .project-img-wrapper1, .project-img-wrapper2, .project-img-wrapper3, .project-img-wrapper4, .project-img-wrapper5 {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+}
+.project-img-wrapper-tsa {
+    background-image: url("./images/compressed/c_TSA_final_mockup.png");
 }
 .project-img-wrapper1 {
     background-image: url("./images/compressed/c_TankBattleMockUp.png");
@@ -737,7 +740,10 @@ canvas {
 }                        
 .project-jQuery {
     background-image: url("./images/compressed/c_jQueryLogo.png");                 
-}                    
+}
+.project-node {
+    background-image: url("./images/compressed/c_NodeJSMockUp.png");                 
+}                        
 .project-button, .email-button { 
     height: 50px;
     width: 150px;
