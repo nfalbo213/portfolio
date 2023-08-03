@@ -603,7 +603,7 @@ canvas {
     margin-block-start: .25em;
     margin-block-end: .25em;
 }
-.tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+.tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper, .img-popup-project-wrapper {
     margin: 0 auto;
     width: 80%;
     height: 33%;
@@ -614,12 +614,12 @@ canvas {
 .first-project-wrapper, .third-project-wrapper, .fifth-project-wrapper {
     flex-direction: row-reverse;
 }
-.tsa-project-wrapper, .second-project-wrapper, .fourth-project-wrapper {
+.tsa-project-wrapper, .second-project-wrapper, .fourth-project-wrapper, .img-popup-project-wrapper {
     flex-direction: row;
 }
             
 @media screen and (max-width: 680px) {
-    .tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper {
+    .tsa-project-wrapper, .first-project-wrapper, .second-project-wrapper, .third-project-wrapper, .fourth-project-wrapper, .fifth-project-wrapper, .img-popup-project-wrapper {
         flex-direction: column-reverse;
         align-items: flex-start;
     }
@@ -677,7 +677,7 @@ canvas {
     }
 }
 
-.project-img-wrapper-tsa, .project-img-wrapper1, .project-img-wrapper2, .project-img-wrapper3, .project-img-wrapper4, .project-img-wrapper5 {
+.project-img-wrapper-tsa, .project-img-wrapper1, .project-img-wrapper2, .project-img-wrapper3, .project-img-wrapper4, .project-img-wrapper5, .project-img-wrapper-popup {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -699,7 +699,10 @@ canvas {
 }             
 .project-img-wrapper5 {
     background-image: url("./images/compressed/c_ModernApothecaMockUp.png");
-}                    
+}
+.project-img-wrapper-popup {
+    background-image: url("./images/compressed/c_popup_mockup.png");
+}                       
 .project-skills-wrapper {
     width: 75%;
     display: flex;
